@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AirlineManageSystemModels.iml" filepath="$PROJECT_DIR$/AirlineManageSystemModels.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CustomerSide/CustomerSide.iml" filepath="$PROJECT_DIR$/CustomerSide/CustomerSide.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ManagementSide/ManagementSide.iml" filepath="$PROJECT_DIR$/ManagementSide/ManagementSide.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ModelAndService/ModelAndService.iml" filepath="$PROJECT_DIR$/ModelAndService/ModelAndService.iml" />
+    </modules>
+  </component>
+</project>
