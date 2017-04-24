@@ -1,0 +1,110 @@
+
+
+#header > .topbar {
+  height: 40px;
+  border-bottom: 1px solid #c0c0c0;
+  line-height: 40px;
+}
+
+#header > .topbar > .container > .row > div {
+  height: 40px;
+  font-size: 12px;
+  color: #888;
+}
+
+#header > .topbar > .container > .row > div + div {
+  border-left: 1px solid #c0c0c0;
+}
+
+#header a {
+  color: #888;
+}
+#header a.register {
+  color: #fff;
+}
+
+#header a:hover {
+  text-decoration: none;
+}
+
+#header .icon-feiji {
+	font-size: 40px;
+	line-height: 40px;
+}
+
+/*机票查询区域*/
+#ticket .container{
+	height: 60px;
+}
+#ticket .container .row .form-group{
+	margin-right: 15px;
+}
+#ticketForm1{
+	padding: 0 35px;
+}
+
+/*机票展示区域*/
+#ticketInfo{
+	margin-top: 30px;
+}
+#ticketInfo .panel.pb-1{
+	margin-bottom: 10px;
+	background-color: #F4FBFC;
+	
+}
+#ticketInfo #headingOne,#ticketInfo #headingTwo,#ticketInfo #headingThree{
+	background-color: #fff;
+	height: 100px;
+}
+#ticketInfo #headingOne > div,#ticketInfo #headingTwo >div,#ticketInfo #headingThree >div{
+	margin: 20px auto;
+}
+.fa-long-arrow-right{
+	font-size: 40px;
+	color: #CCCCCC;
+}
+#ticketInfo .airName{
+	color:#4D4D4D ;
+	font-weight: 700;
+}
+#ticketInfo .airModel{
+	color:#999999 ;
+	border-bottom: 1px dashed #999999;
+}
+#ticketInfo .vCenter{
+	padding-top: 10px;
+}
+#ticketInfo .goTime,#ticketInfo .arriveTime{
+	font-size: 18px;
+	font-weight: 700;
+	color:#4D4D4D ;
+}
+#ticketInfo .tPrice{
+	font-size: 28px;
+	color: orangered;
+}
+#ticketInfo ul > li{
+	height: 50px;
+}
+/*脚注部分*/
+
+footer {
+	padding: 30px 0;
+	background: #333;
+	text-align: center;
+}
+
+.footer-copyright {
+	margin: 15px 0 0 0;
+	font-size: 18px;
+    line-height: 32px;
+    color: #fff;
+}
+
+.footer-copyright a {
+	color: #fff;
+	border-bottom: 1px dashed #eee;
+}
+.footer-copyright a:hover { 
+	border: 0; 
+}
