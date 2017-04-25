@@ -44,12 +44,12 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label"><span class="text-red">*</span>用户名</label>
                                     <div class="col-sm-3">
                                         <input type="text" class="form-control" id="username" name="username" <#if isNew ==false>disabled="disabled"</#if>
-                                               value="${staff.username!}" required placeholder="用户名">
+                                               value="${editStaff.username!}" required placeholder="用户名">
                                     </div>
 
                                     <label for="inputPassword3" class="col-sm-2 control-label"><span class="text-red">*</span>真实姓名</label>
                                     <div class="col-sm-3">
-                                        <input type="text" id="realName" name="realName" value="${staff.realName!}" class="form-control" required
+                                        <input type="text" id="realName" name="realName" value="${editStaff.realName!}" class="form-control" required
                                                placeholder="真实姓名">
                                     </div>
                                 </div>
@@ -58,12 +58,12 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label"><span class="text-red">*</span>电子邮箱</label>
                                     <div class="col-sm-3">
                                         <input type="text" class="form-control" id="checkedEmail" name="checkedEmail"
-                                               value="${staff.checkedEmail!}" required placeholder="电子邮箱">
+                                               value="${editStaff.checkedEmail!}" required placeholder="电子邮箱">
                                     </div>
 
                                     <label for="inputPassword3" class="col-sm-2 control-label"><span class="text-red">*</span>工作岗位</label>
                                     <div class="col-sm-3">
-                                        <input type="text" id="posts" name="posts" value="${staff.posts!}" class="form-control" required
+                                        <input type="text" id="posts" name="posts" value="${editStaff.posts!}" class="form-control" required
                                                placeholder="工作岗位">
                                     </div>
                                 </div>
@@ -87,8 +87,8 @@
 
                                     <label for="inputPassword3" class="col-sm-2 control-label"><span class="text-red">*</span>是否禁用</label>
                                     <div class="col-sm-5">
-                                        <div class="radio-inline"><input type="radio" name="disable" value="0" <#if staff.isDisable ==false>checked="checked"</#if>> 否</div>
-                                        <div class="radio-inline"><input type="radio" name="disable" value="1" <#if staff.isDisable ==true>checked="checked"</#if>>是</div>
+                                        <div class="radio-inline"><input type="radio" name="disable" value="0" <#if editStaff.isDisable ==false>checked="checked"</#if>> 否</div>
+                                        <div class="radio-inline"><input type="radio" name="disable" value="1" <#if editStaff.isDisable ==true>checked="checked"</#if>>是</div>
                                     </div>
 
                                 </div>

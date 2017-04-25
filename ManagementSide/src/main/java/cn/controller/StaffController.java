@@ -79,7 +79,7 @@ public class StaffController {
         }
         model.put("oldPerms",oldPerms);
         model.put("staffPerms",staffPermsList);
-        model.put("staff",staff);
+        model.put("editStaff",staff);
         return "staff/edit";
     }
 
