@@ -8,13 +8,91 @@
 //		$(".carousel-control").css("line-height",$height + "px");
 //	})
 //})
+function checkForm(){
+		window.wxc.xcConfirm("成功","success");
+		var username =$('#username').val();
+		var password =$('#password').val();
+		
+		
+		
+//			if(checkEmail(user)){
+//			$('#username').nextSibling('span').addClass('glyphicon-ok');
+//			return true;
+//			}else{
+//			$('#username').nextSibling('span').addClass('glyphicon-remove');
+//			return false;
+		
+//		if (checkEmail(username)==false) {
+//			$('#username').nextSibling('span').addClass('glyphicon-remove');
+//			return false;
+//		}else if(checkPassword(password)==false){
+//			$('password').nextSibling('span').addClass('glyphicon-remove');
+//			return false;
+//		}else {
+//			$(".loginModal").submit();
+//			return true;
+//		}
+
+
+	}
+//	检验是否为空
+	function checkNull(input){
+        if(input !=''){
+            return true;
+        }else{
+            return false
+        }
+    }
+
+//	检验手机号
+	function checkPhone(input){
+		var regex = /^1\d{10}$/;
+        /*match表示匹配函数*/
+        if (input.match(regex)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+//	检验邮箱地址
+	function checkEmail(input){
+		var regex = /^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/;
+        /*match表示匹配函数*/
+        if (input.match(regex)) {
+            return true;
+        } else {
+            return false;
+        }
+	}
+//	检验密码
+	function checkPassword(){
+		var regex = /^[A-Za-z0-9]+$/;
+        /*match表示匹配函数*/
+        if (input.match(regex)) {
+            return true;
+        } else {
+            return false;
+        }
+	}
 $(function(){
 	$('#goCity').on('focus',function(){
 	$('.citylist').css('display','block');
-	}).on('blur',function(){
-		$('.citylist').css('display','none');
-	})
+	});
+	
+//	登录验证
+	var user=$('#username').val();
+	var psw=$('#password').val();
+	
+//	var changed=function(id,fn){
+//		id.on('change',fn);
+//	}
+//	var setfeedback = function(id, feedback){
+//		id.addClass('feedback');
+	
+
 })
+
+//联系作者弹出框
 $(function(){
 	$("#author").popover({
 		trigger : 'click',//鼠标以上时触发弹出提示框

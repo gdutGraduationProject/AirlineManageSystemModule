@@ -1,118 +1,85 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>用户登录</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
-	<link rel="stylesheet" type="text/css" href="css/login.css"/>
-
-	</head>
-	<body>
-    <!--导航条开始-->
-		<nav class="navbar navbar-default navbar-fixed-top ">
-			<div class="container">
-				<div class="container">
-					<div class="navbar-header">
-						<a href="#" class="navbar-brand"><i class="iconfont icon-feiji feiji"></i></a>
-					</div> 
-				</div>
-		</nav>
-	<!--导航条结束-->
-	<!--登陆下页面主题部分开始-->
-		<div class="container" id="login-area">
-			<div class="row">
-				<!--选项卡-->
-				<ul class="nav nav-tabs col-lg-offset-3 col-lg-9">
-					<li class="active"><a href="#1st-log" data-toggle="tab">Account password login</a></li>
-					<li><a href="#2nd-log" data-toggle="tab">verification code login</a></li>
-				</ul>
-			  <!--内容页主题-->
-				<div class="tab-content col-lg-offset-3 col-lg-9 " style="padding-top: 15px;">
-					<!--选项卡第一页-->
-					<div class="tab-pane active fade in" id="1st-log">
-						<form class="form-horizontal">
-							  <div class="form-group has-feedback">
-							    <label for="inputtext" class="control-label col-lg-2">Email/Username</label>
-							    <div class="col-lg-5">
-							      <input type="text" class="form-control " id="inputtext" placeholder="Email/Username">
-							      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-							   </div>
-							  </div>
-							
-							  <div class="form-group has-feedback">
-							    <label for="inputPassword" class="control-label col-lg-2">Password</label>
-							    <div class="col-lg-5">
-							      <input type="password" class="form-control " id="inputPassword" placeholder="Password">
-							      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-							    </div>
-                              </div>
-                              
-                              <div class="form-group">
-							    <div class="col-lg-3">
-							      <div class="checkbox">
-							        <label>
-							          <input type="checkbox"> Remember me
-							        </label>
-							      </div>
-							    </div>
-							     <div class="col-lg-offset-2 col-lg-1">
-								      <button type="submit" class="btn btn-primary">Sign in</button>
-								 </div>
-							  </div>
-							</form>
-							<br />
-							<br />
-							<br />
-							<div class="row">
-								<p class="col-lg-2">No account?</p>
-								<a href="#" class="col-lg-offset-3 col-lg-2">Sign Up!!!</a>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>用户注册</title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<link rel="stylesheet" type="text/css" href="css/.css"/>
+</head>
+<body>
+	<section id="register">
+		<div class="container">
+			<div class="page-header">
+				<h2>会员登录<small>Member Login</small></h2>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form action="" class="form-horizontal">
+						<div class="form-group">
+							<div class="input-group margin-bottom-sm">
+			            		<label for="username" class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></label>
+							  	<input class="form-control" id="username" placeholder="Email address">
+							    <span class="glyphicon form-control-feedback" ></span>
 							</div>
-					</div>
-					<!--选项卡第二页-->
-					<div class="tab-pane fade" id="2nd-log">
-						<!--水平排列的表单-->
-						<form class="form-horizontal">
-							  <div class="form-group has-feedback">
-							    <label for="tel" class="control-label col-lg-2">Phone number</label>
-							    <div class="col-lg-5">
-							      <input type="text" class="form-control" id="tel" placeholder="Phone number">
-							      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-							    </div>
-							  </div>  
-							  
-                              <div class="form-group">
-							     <div class="col-lg-offset-4 col-lg-1">
-								      <button type="botton" class="btn btn-primary btn-sm">Get verifying code</button>
-								 </div>
-							  </div>
-							  
-							  <div class="form-group has-feedback">
-							    <label for="yanzhengma" class="control-label col-lg-2">verifying code</label>
-							    <div class="col-lg-5">
-							      
-							      <input type="password" class="form-control " id="yanzhengma" placeholder="verifying code">
-							      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-							    </div>
-                              </div>
-                              
-                              <div class="form-group">
-							    <div class="col-lg-offset-5 col-lg-1">
-								      <button type="submit" class="btn btn-primary btn-sm">Sign in</button>
-								 </div>
-                              </div>
-						</form>
-					</div>
+						</div>
+						<div class="form-group">
+						    <label for="rgemail" class="col-md-2 control-label">Email</label>
+						    <div class="col-md-5">
+						      <input type="email" class="form-control" id="rgemail" placeholder="Email">
+						    </div>
+						</div>
+						<div class="form-group">
+						    <label for="rgpassword" class="col-md-2 control-label">密码</label>
+						    <div class="col-md-5">
+						      <input type="password" class="form-control" id="rgpassword" placeholder="Password">
+						    </div>
+						</div>
+						<div class="form-group">
+							<label for="agpassword" class="col-md-2 control-label">确认密码</label>
+						    <div class="col-md-5">
+						      <input type="password" class="form-control" id="agpassword" placeholder="Password">
+						    </div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">AMS服务条款</label>
+							<div class=" col-md-5">
+								<textarea class="form-control" rows="8"> AMS注册声明：								
+1.“AMS系统”是由highnessE负责管理及运营。
+2.法人或其他非法人组织没有资格参加本奖励计划。本奖励计划除家庭积分计划规定外，亦不受理以共同累积积分或相关情况为目的的数人联合申请或同一人重复申请。 								
+3.旅客填写的个人信息须详细、准确；若个人信息提供不完整或不真实，AMS将无法办理此类注册申请。 
+4.加入成为会员，即表示同意并遵守AMS的相关规定和要求，以及今后可能发生的变动和补充。 
+5.除家庭积分合算之外，会员积分均不得转让或合并，积分奖励如因政府相关法规而应予课税时，税费须由会员自行承担。 
+6.会员如呈不实之资料(如飞行记录)等任何违反本计划条款或规则的行为，本人有权视情节采取以下一项或数项法律行动：(1)要求赔偿损失；(2)终止会员资格；(3)取消已累积的积分；(4)会员须缴付已搭乘航班的全额经济舱、头等舱之票价及相关的律师费、诉讼费等。  
+7.AMS是决定会员是否符合资格获取积分的最终机构；若会员违反会员指南中的条款及规则而获得积分，AMS有权在任何时候予以取消。 
+8.AMS合作伙伴及其地址、电话如有更改或终止合作计划，将在官网进行公示。AMS及有关合作伙伴恕不另行通知。
+9.为保障您的合法权益，请会员认真阅读本会员指南，尤其是本会员指南中粗体部分。 
+								</textarea>
+							</div>	
+						</div>
+						<div class="col-md-offset-2">
+							<input type="checkbox"/> 已阅读并同意以上条款  
+						</div>
+						<br />
+						<div class="col-md-offset-2">
+							<botton type="submit" class="btn btn-warning">下一步</botton>
+						</div>
+						
+					</form>
 				</div>
+			</div>
 			
-		
 		</div>
-		<!--登录页面主体部分结束-->
-			
-			
-
-	<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/login.js" type="text/javascript" charset="utf-8"></script>
-	</body>
+		
+	</section>
+	<footer id="footer" >
+			<div class="footer-copyright">
+	            &copy; AirManagement System by  <a href="">HighnessE</a>.
+	        </div>
+	</footer>
+	<script src="lib/jquery/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+</body>
 </html>
