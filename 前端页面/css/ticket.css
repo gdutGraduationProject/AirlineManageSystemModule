@@ -6,9 +6,6 @@
 #ticket .container .row .form-group{
 	margin-right: 15px;
 }
-#ticketForm1{
-	padding: 0px;
-}
 
 /*机票展示区域*/
 .form-control{
@@ -19,7 +16,7 @@
 }
 #ticketInfo .panel.pb-1{
 	margin-bottom: 10px;
-	background-color: #F4FBFC;
+	background-color: #F5F5F5;
 	
 }
 #ticketInfo #headingOne,#ticketInfo #headingTwo,#ticketInfo #headingThree{

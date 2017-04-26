@@ -1,13 +1,4 @@
-//$(function(){
-//	//设置轮播控件垂直居中
-//	$(".carousel-control").css("line-height",$(".carousel-inner img").height()+ "px");
-//	$(window).resize(function(){
-//		var $height = $(".carousel-inner img").eq(0).height()||
-//		              $(".carousel-inner img").eq(1).height()||
-//		              $(".carousel-inner img").eq(2).height();
-//		$(".carousel-control").css("line-height",$height + "px");
-//	})
-//})
+
 function checkForm(){
 		window.wxc.xcConfirm("成功","success");
 		var username =$('#username').val();
