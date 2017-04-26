@@ -2,74 +2,90 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>用户注册</title>
+	<title>用户登录</title>
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+	<link rel="stylesheet" type="text/css" href="css/header.css"/>
 	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-	<link rel="stylesheet" type="text/css" href="css/.css"/>
+	<link rel="stylesheet" type="text/css" href="css/login.css"/>
 </head>
 <body>
-	<section id="register">
+	<!--头部开始-->
+	<header id="header">
+		<!--顶部通栏-->
+		<div class="topbar visible-md visible-lg">
+	      <div class="container">
+	        <div class="row">
+	          <div class="col-md-1">
+	          	<a href="index.html">
+			      	<i class="iconfont icon-feiji"></i>
+			    </a>
+	          </div>
+	          <div class="col-md-2 text-center">
+	            <button id="author" class="btn btn-default btn-sm" 
+	            	data-toggle="popover"><i class="fa fa-wechat"></i>  联系作者</button>
+	          </div>
+	          <div class="col-md-2 text-center">
+	          	<button id="friend" class="btn btn-default btn-sm" 
+	            	data-toggle="popover"><i class="fa fa-handshake-o"></i>  合作伙伴</button>
+	          </div>
+	          <div class="col-md-4 text-center">
+	            <i class="fa fa-envelope"></i> weiyeweb@126.com（服务时间：9:00-21:00）
+	          </div>
+	          
+	          <div class="col-md-3 text-center">
+	            <a href="signUp.html" class="btn btn-danger btn-sm register">立即注册</a>
+	            <a href="login.html" class="btn btn-primary btn-sm log"> 登录</a>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	</header>
+	<section id="login">
 		<div class="container">
-			<div class="page-header">
-				<h2>会员登录<small>Member Login</small></h2>
-			</div>
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<form action="" class="form-horizontal">
-						<div class="form-group">
-							<div class="input-group margin-bottom-sm">
-			            		<label for="username" class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></label>
-							  	<input class="form-control" id="username" placeholder="Email address">
-							    <span class="glyphicon form-control-feedback" ></span>
-							</div>
-						</div>
-						<div class="form-group">
-						    <label for="rgemail" class="col-md-2 control-label">Email</label>
-						    <div class="col-md-5">
-						      <input type="email" class="form-control" id="rgemail" placeholder="Email">
-						    </div>
-						</div>
-						<div class="form-group">
-						    <label for="rgpassword" class="col-md-2 control-label">密码</label>
-						    <div class="col-md-5">
-						      <input type="password" class="form-control" id="rgpassword" placeholder="Password">
-						    </div>
-						</div>
-						<div class="form-group">
-							<label for="agpassword" class="col-md-2 control-label">确认密码</label>
-						    <div class="col-md-5">
-						      <input type="password" class="form-control" id="agpassword" placeholder="Password">
-						    </div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-2 control-label">AMS服务条款</label>
-							<div class=" col-md-5">
-								<textarea class="form-control" rows="8"> AMS注册声明：								
-1.“AMS系统”是由highnessE负责管理及运营。
-2.法人或其他非法人组织没有资格参加本奖励计划。本奖励计划除家庭积分计划规定外，亦不受理以共同累积积分或相关情况为目的的数人联合申请或同一人重复申请。 								
-3.旅客填写的个人信息须详细、准确；若个人信息提供不完整或不真实，AMS将无法办理此类注册申请。 
-4.加入成为会员，即表示同意并遵守AMS的相关规定和要求，以及今后可能发生的变动和补充。 
-5.除家庭积分合算之外，会员积分均不得转让或合并，积分奖励如因政府相关法规而应予课税时，税费须由会员自行承担。 
-6.会员如呈不实之资料(如飞行记录)等任何违反本计划条款或规则的行为，本人有权视情节采取以下一项或数项法律行动：(1)要求赔偿损失；(2)终止会员资格；(3)取消已累积的积分；(4)会员须缴付已搭乘航班的全额经济舱、头等舱之票价及相关的律师费、诉讼费等。  
-7.AMS是决定会员是否符合资格获取积分的最终机构；若会员违反会员指南中的条款及规则而获得积分，AMS有权在任何时候予以取消。 
-8.AMS合作伙伴及其地址、电话如有更改或终止合作计划，将在官网进行公示。AMS及有关合作伙伴恕不另行通知。
-9.为保障您的合法权益，请会员认真阅读本会员指南，尤其是本会员指南中粗体部分。 
-								</textarea>
-							</div>	
-						</div>
-						<div class="col-md-offset-2">
-							<input type="checkbox"/> 已阅读并同意以上条款  
-						</div>
-						<br />
-						<div class="col-md-offset-2">
-							<botton type="submit" class="btn btn-warning">下一步</botton>
-						</div>
-						
-					</form>
+			<div class="row">
+				<div class="page-header">
+					<h2>会员登录 <small>Member Login</small></h2>
 				</div>
-			</div>
-			
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" action="#" method="post">
+							<div class="form-group">
+							    <div class="input-group col-md-offset-4 col-md-4">
+				            		<label for="username" class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></label>
+								  	<input class="form-control" id="username" placeholder="Email address">
+							    </div>
+							</div>
+							<div class="form-group">
+							    <div class="input-group col-md-offset-4 col-md-4">
+				            		<label for="password" class="input-group-addon"><i class="fa fa-key fa-fw"></i></label>
+								  	<input class="form-control" id="loginPassword" placeholder="Password">
+							    </div>
+							</div>
+							<div class="form-group">
+					             <div class="col-md-offset-4">
+					                <div class="btn-group" data-toggle="buttons">
+					                   <label class="btn btn-default btn-sm">
+					                    <input type="checkbox"> 记住密码
+					                   </label>
+					                </div>
+					             </div>					             
+				            </div>
+				            <div class="form-group">
+				            	<div class="col-md-offset-6 col-md-2">
+					             	<span>没有账号？</span><a href="signUp.html">立即注册！</a>
+					             </div>
+				            </div>
+				            <div class="form-group">
+				            	<div class="col-md-offset-7">
+				            		<input type="submit" class="btn btn-primary" value="登录"/>
+				            	</div>
+				            </div>
+						</form>
+					</div>
+				</div>
+			</div>	
 		</div>
 		
 	</section>
