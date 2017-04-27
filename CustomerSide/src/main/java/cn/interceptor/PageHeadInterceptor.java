@@ -1,6 +1,6 @@
 package cn.interceptor;
 
-import cn.bean.Staff;
+import cn.bean.Customer;
 import cn.util.GlobalContants;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -11,25 +11,26 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by ChenGeng on 2017/3/19.
+ * Created by Chen Geng on 2017/4/27.
  */
 @Component
-public class AdminLoginInterceptor implements HandlerInterceptor {
-
-
+public class PageHeadInterceptor implements HandlerInterceptor {
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
-        HttpSession session = request.getSession();
-        Object object = session.getAttribute(GlobalContants.SESSION_LOGIN_STAFF);
-        if(object==null){
-            //该用户尚未登录
-            request.setAttribute(GlobalContants.SESSION_LOGIN_BACK_URL,request.getRequestURI());
-            response.sendRedirect("/admin/login");
-            return false;
-        }else{
-            //该用户已经登录
-            return true;
+    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
+        HttpSession session = httpServletRequest.getSession();
+        Customer customer = (Customer) session.getAttribute(GlobalContants.SESSION_LOGIN_CUSTOMER);
+        if(customer == null) {
+            /**
+             * 尚未登录
+             */
+            httpServletRequest.setAttribute("isLogin",false);
+        } else{
+            /**
+             * 已经登录
+             */
+            httpServletRequest.setAttribute("isLogin",true);
         }
+        return true;
     }
 
     @Override

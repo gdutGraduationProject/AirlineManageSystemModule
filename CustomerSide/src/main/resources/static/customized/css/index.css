@@ -1,0 +1,66 @@
+
+/*轮播区域*/
+
+#myCarousel {
+	margin:0 0 0 0;
+}
+.carousel-inner .item img {
+	margin: 0 auto;
+}
+
+
+/*机票搜索区域*/
+#checkDiv {
+	/*background: rgba(255,255,255,.9);*/
+	position: absolute;
+	top: 10%;
+	left: 15%;
+	box-shadow: 1px 1px 2px #CCCCCC;
+	border-radius: 3px;
+}
+#checkDiv .goBox,#checkDiv .backBox{
+	margin-top: 25px;
+}
+.goBox,.backBox{
+	position: relative;
+}
+.citylist {
+	position: absolute;
+	width: 285px;
+	border: 1px solid #eee;
+	z-index: 1001;
+	background: rgb(255,255,255);
+	display: none;
+}
+
+.citylist ul li a{
+	width: 55px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	padding: 0;
+}
+.citylist dl dt{
+	height: 22px;
+	width: 23px;
+}
+.citylist dl dd{
+	width: 260px;
+}
+.citylist dl dt{
+	float: left;
+}
+.citylist dl dd {
+	float: left;
+}
+.citylist dl dd a{
+	display: inline-block;
+	height:22px ;
+	width: 48px;
+	color: #0F0F0F;
+	padding-left:8px;
+}
+.citylist dl dd a:hover{
+	background: blue;
+	color: white;
+}

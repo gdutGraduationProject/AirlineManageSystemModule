@@ -7,3 +7,5 @@
 
 <script src="${ctx}/jquery/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="${ctx}/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="${ctx}/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+<script src="${ctx}/xcConfirm/js/xcConfirm.js" type="text/javascript" charset="utf-8"></script>

@@ -60,8 +60,8 @@ public class CustomerRegisterController {
                  * 验证通过
                  */
                 customer.setUrlCode(null);
-                customer.setNewEmail(null);
                 customer.setCheckedEmail(customer.getNewEmail());
+                customer.setNewEmail(null);
                 customerService.save(customer);
                 request.setAttribute(GlobalContants.REQUEST_SUCCESS_TEXT,"验证成功，您现在可以通过该邮箱登陆了！");
                 return "success";

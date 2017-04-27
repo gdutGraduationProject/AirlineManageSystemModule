@@ -21,8 +21,14 @@
                     <li><a href="about.html">关于MSA</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right hidden-sm">
-                    <li><a href="login.html">登录</a></li>
-                    <li><a href="signUp.html">注册</a></li>
+                    <#if isLogin == false>
+                        <li><a href="loginPage">登录</a></li>
+                        <li><a href="registePage">注册</a></li>
+                    <#else>
+                        <li><a href="usercenter">个人中心</a></li>
+                        <li><a href="logout">登出</a></li>
+                    </#if>
+
                 </ul>
             </div>
         </div>

@@ -20,25 +20,41 @@ public class LoginController {
     @Autowired
     CustomerService customerService;
 
+    @RequestMapping(value = {"","index"})
+    public String indexJump(){
+        return "index";
+    }
+
+    @RequestMapping("loginPage")
+    public String loginPage(){
+        return "prelogin/login";
+    }
+
     @RequestMapping("/loginconfirm")
     public String customerLogin(HttpServletRequest request, String loginUsername, String password, Map model){
         Customer customer = customerService.customerLogin(loginUsername,password);
         if(customer == null){
             model.put(GlobalContants.SESSION_ERROR_REASON,"用户不存在或密码错误");
-            return "errorPage";
+            return "prelogin/login";
         }else{
             HttpSession session = request.getSession();
             session.setAttribute(GlobalContants.SESSION_LOGIN_USER_TYPE, GlobalContants.UserType.CUSTOMER);
             session.setAttribute(GlobalContants.SESSION_LOGIN_CUSTOMER,customer);
             String nextUrl = (String)session.getAttribute(GlobalContants.SESSION_LOGIN_BACK_URL);
             if(nextUrl==null || nextUrl.equals("")){
-                nextUrl = new String("index");
+                nextUrl = new String("/index");
             }
-            return nextUrl;
+            return "redirect:"+nextUrl;
         }
     }
 
-
+    @RequestMapping("logout")
+    public String logout(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.removeAttribute(GlobalContants.SESSION_LOGIN_USER_TYPE);
+        session.removeAttribute(GlobalContants.SESSION_LOGIN_CUSTOMER);
+        return "redirect:/index";
+    }
 
 
 }
