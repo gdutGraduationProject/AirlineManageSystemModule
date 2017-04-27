@@ -6,6 +6,7 @@ package cn.util;
 public class GlobalContants {
 
     public static final String REQUEST_ERROR_REASON = "error_reason";
+    public static final String REQUEST_SUCCESS_TEXT = "success_text";
     public static final String SESSION_ERROR_REASON = "error_reason";
     public static final String SESSION_LOGIN_CUSTOMER = "customer";
     public static final String SESSION_LOGIN_STAFF = "staff";
@@ -13,6 +14,10 @@ public class GlobalContants {
     public static final String RESPONSE_MESSAGE = "message";
     //被登录拦截器拦截的请求之前的跳转路径
     public static final String SESSION_LOGIN_BACK_URL= "login_back_url";
+    public static final String SYSTEM_DOMAIN_ADDRESS="http://10.30.2.153";
+    public static final String SYSTEM_MANAGER_PORTID="6078";
+    public static final String SYSTEM_CUSTOMER_PORTID="6078";
+
 
 
     /**

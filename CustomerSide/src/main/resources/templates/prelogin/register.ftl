@@ -3,45 +3,12 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>用户注册</title>
-	<link rel="stylesheet" type="text/css" href="${ctx}/bootstrap/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="${ctx}/font-awesome/css/font-awesome.min.css"/>
-	<link rel="stylesheet" type="text/css" href="${ctx}/customized/css/iconfont.css"/>
-	<link rel="stylesheet" type="text/css" href="${ctx}/customized/css/header.css"/>
-	<link rel="stylesheet" type="text/css" href="${ctx}/customized/css/footer.css"/>
+<#include "/include/resources.ftl">
 	<link rel="stylesheet" type="text/css" href="${ctx}/customized/css/register.css"/>
 </head>
 <body>
 	<!--头部开始-->
-	<header id="header">
-		<!--顶部通栏-->
-		<div class="topbar visible-md visible-lg">
-	      <div class="container">
-	        <div class="row">
-	          <div class="col-md-1">
-	          	<a href="index.html">
-			      	<i class="iconfont icon-feiji"></i>
-			    </a>
-	          </div>
-	          <div class="col-md-2 text-center">
-	            <button id="author" class="btn btn-default btn-sm" 
-	            	data-toggle="popover"><i class="fa fa-wechat"></i>  联系作者</button>
-	          </div>
-	          <div class="col-md-2 text-center">
-	          	<button id="friend" class="btn btn-default btn-sm" 
-	            	data-toggle="popover"><i class="fa fa-handshake-o"></i>  合作伙伴</button>
-	          </div>
-	          <div class="col-md-4 text-center">
-	            <i class="fa fa-envelope"></i> weiyeweb@126.com（服务时间：9:00-21:00）
-	          </div>
-	          
-	          <div class="col-md-3 text-center">
-	            <a href="signUp.html" class="btn btn-danger btn-sm register">立即注册</a>
-	            <a href="login.html" class="btn btn-primary btn-sm log"> 登录</a>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-	</header>
+	<#include "/include/pagehead.ftl"/>
 	<section id="register">
 		<div class="container">
 			<div class="page-header">
@@ -49,7 +16,7 @@
 			</div>
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<form action="/registe" class="form-horizontal">
+					<form action="/registe" class="form-horizontal" method="post">
 						<div class="form-group">
 							<label for="rgname" class="col-md-2 control-label">用户名</label>
 						    <div class="col-md-5">
@@ -140,13 +107,8 @@
 		</div>
 		
 	</section>
-	<footer id="footer" >
-			<div class="footer-copyright">
-	            &copy; AirManagement System by  <a href="">HighnessE</a>.
-	        </div>
-	</footer>
-	<script src="${ctx}/jquery/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="${ctx}/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<#include "/include/pagefoot.ftl"/>
+
 	<script src="${ctx}/customized/js/register.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

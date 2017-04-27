@@ -20,6 +20,26 @@ public class CustomerService {
 
     MD5Encrypt md5Encrypt = new MD5Encrypt();
 
+    public Customer findCustomerById(String id){
+        return customerRepo.findOne(id);
+    }
+
+    public Customer encryptCustomerPassword(Customer customer){
+        String unencryptPassword = customer.getPassword();
+        String salt = customer.getSalt();
+        if(salt == null || salt.equals("")){
+            salt = md5Encrypt.createSalt();
+            customer.setSalt(salt);
+        }
+        String encryptedPassword = md5Encrypt.encryption(unencryptPassword,salt);
+        customer.setPassword(encryptedPassword);
+        return customer;
+    }
+
+    public Customer save(Customer customer){
+        return customerRepo.save(customer);
+    }
+
     /**
      * 根据用户名密码查找相应的用户，如果验证通过返回该用户，验证失败返回空
      * @param loginUsername 用户登录时输入的用户名，可能为系统用户名、手机号或邮箱

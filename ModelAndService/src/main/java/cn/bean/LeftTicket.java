@@ -47,7 +47,7 @@ public class LeftTicket extends BaseDomain{
     private int leftTicketCount;
 
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinTable(name = "leftticket_links_leftticket_class",
+    @JoinTable(name = "leftticket_links_class",
             joinColumns ={@JoinColumn(name = "leftticket_id", referencedColumnName = "id") },
             inverseJoinColumns = { @JoinColumn(name = "leftticket_class_id", referencedColumnName = "id")
             })
