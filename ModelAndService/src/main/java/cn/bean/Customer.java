@@ -2,11 +2,9 @@ package cn.bean;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by ChenGeng on 2017/2/14.
@@ -100,6 +98,9 @@ public class Customer extends BaseDomain {
      * 身份证号码
      */
     private String idNumber;
+
+    @OneToMany(cascade = { CascadeType.REFRESH, CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REMOVE },mappedBy ="customer")
+    private List<CommonPassager> commonPassagerList;
 
     /**
      * 未使用的里程，可用于支付机票，每100旅程可用于支付1元
@@ -242,4 +243,15 @@ public class Customer extends BaseDomain {
         this.remainedDistance = remainedDistance;
     }
 
+    public List<CommonPassager> getCommonPassagerList() {
+        return commonPassagerList;
+    }
+
+    public void setCommonPassagerList(List<CommonPassager> commonPassagerList) {
+        this.commonPassagerList = commonPassagerList;
+    }
+
+    public void addCommonPassager(CommonPassager commonPassager){
+
+    }
 }
