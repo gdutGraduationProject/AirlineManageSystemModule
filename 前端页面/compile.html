@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>修改密保</title>
+		<title>编辑和修改旅客</title>
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
@@ -41,7 +41,7 @@
 		    	</div>
 		    </nav>
 		</header>
-		<!--我的积分主体-->
+		<!--个人中心主体-->
 		<section id="person" style="padding-top: 50px;">
 			<div class="container">
 				<div class="row">
@@ -49,43 +49,64 @@
 						<div class="list-group">
 							<a href="person.html" class="list-group-item">我的订单</a>
 							<a href="jifen.html" class="list-group-item">我的积分</a>
-							<a href="lvke.html" class="list-group-item">常用旅客</a>
+							<a href="lvke.html" class="list-group-item active">常用旅客</a>
 							<a href="changepassword.html" class="list-group-item">修改密码</a>
-							<a href="changemibao.html" class="list-group-item active">修改密保</a>
+							<a href="changemibao.html" class="list-group-item">修改密保</a>
 							<a href="changeemail.html" class="list-group-item">修改邮箱</a>
 						</div>
 					</div>
 					<!--订单列表-->
 					<div class="col-md-10 well">
+					
 						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title"><i class="fa fa-quora"></i>修改密保</h3>
-							</div>
-							<div class="panel-body">
-								<form action="" class="form-horizontal">
+						  <div class="panel-heading">
+						  	
+						  </div>
+						  <div class="panel-body">
+						   		<form action="" class="form-horizontal">
 									 <div class="form-group">
-									    <label  class="col-md-2 control-label">密保问题</label>
-									    <div class="col-md-5">
-									        <select class="form-control">
-												<option>你在哪里上大学？</option>
-												<option>小学班主任的名字？</option>
-												<option>最喜欢哪个妹子？</option>
-												<option>最好的朋友是谁？</option>
-										    </select>
+									    <label for="newuser" class="col-md-2 control-label">姓名</label>
+									    <div class="col-md-3">
+									      <input type="text" class="form-control" id="newuser" >
 									    </div>
-									</div>
+									 </div>
 									<div class="form-group">
-									    <label  class="col-md-2 control-label">密保答案</label>
-									    <div class="col-md-5">
-									      <input type="text" class="form-control" >
+									    <label for="newphone" class="col-md-2 control-label">手机号码</label>
+									    <div class="col-md-3">
+									      <input type="text" class="form-control" id="newphone" >
 									    </div>
-									</div>
-									 <div class="col-md-offset-2">
-										<input type="submit" value="保存修改" class="btn btn-primary" />
-									</div>
+									 </div>
+									 <div class="form-group">
+									    <label class="col-md-2 control-label">证件类型</label>
+									    <div class="col-md-3">
+									      <input type="text" class="form-control" value="身份证" disabled="disabled">
+									    </div>
+									 </div>
+									<div class="form-group">
+									    <label for="newidcard" class="col-md-2 control-label">证件号码</label>
+									    <div class="col-md-3">
+									      <input type="text" class="form-control" id="newidcard" >
+									    </div>
+									 </div>
+									 <div class="form-group">
+									    <label for="" class="col-md-2 control-label">性别</label>
+									    <div class="col-md-3">
+									    	<label class="radio-inline">
+											  <input type="radio" name="sex" value="male"> 男
+											</label>
+											<label class="radio-inline">
+											  <input type="radio" name="sex" value="female"> 女
+											</label>
+										</div>
+									 </div>
+									 <div class="form-group">
+									    <input type="submit" value="保存修改" class="col-md-offset-3  btn btn-primary" />
+									 </div>
 								</form>
-							</div>
+						  </div>
 						</div>
+						
+						
 						
 					</div>
 				</div>

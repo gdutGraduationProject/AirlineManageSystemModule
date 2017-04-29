@@ -1,0 +1,37 @@
+/*详细信息*/
+#allprice{
+	font-size: 20px;
+	font-weight: 700;
+	color: orange;
+}
+.custom{
+	color: #808080;
+	font-size: 12px;
+}
+.fw{
+	font-weight: 700;
+}
+/*航班*/
+.fa-long-arrow-right{
+	font-size: 40px;
+	color: #CCCCCC;
+}
+.airName{
+	color:#4D4D4D ;
+	font-weight: 700;
+}
+.airModel{
+	color:#999999 ;
+}
+
+.goTime,.arriveTime{
+	font-size: 18px;
+	font-weight: 700;
+	color:#4D4D4D ;
+}
+.ticketheader{
+	height: 40px;
+}
+dl,dt,dd{
+	float: left;
+}
