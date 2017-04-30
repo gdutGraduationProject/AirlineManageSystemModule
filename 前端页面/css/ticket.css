@@ -1,11 +1,4 @@
 
-/*机票查询区域*/
-#ticket .container{
-	height: 60px;
-}
-#ticket .container .row .form-group{
-	margin-right: 15px;
-}
 
 /*机票展示区域*/
 .form-control{

@@ -47,28 +47,43 @@
 	    	</div>
 		    <section id="ticket">
 		    	<div class="container">
-		    		<div class="row">
-		    			<form action="#" method="post" class="form-inline" id="ticketForm">					   		
+		    			<form action="#" method="post" class="form-horizontal" id="ticketForm">					   		
 							   		
 				   			<div class="form-group">
-					    		<label for="#goCity">出发城市</label>
-							    <input type="text" class="form-control" id="goCity" >
+					    		<label class="col-md-2 control-label">出发城市</label>
+							    <div class="col-md-5">
+							    	<select class="form-control">
+									  <option>JY-揭阳国际机场</option>
+									  <option>GZ-广州白云机场</option>
+									  <option>GZ-广州白云机场</option>
+									  <option>GZ-广州白云机场</option>
+									  <option>GZ-广州白云机场</option>
+									</select>
+							    </div>
 							</div>
 							<div class="form-group">
-							   <label for="#backCity">到达城市</label>
-							   <input type="text" class="form-control" id="backCity" >
-							</div>				   		
-			   			
-			   				
-							<div class="form-group">
-							   <label for="goDate">出发日期</label>
-							   <input type="text" class="form-control" id="goDate" onclick="WdatePicker()">
+					    	   <label class="control-label col-md-2">目的城市</label>
+							    <div class="col-md-5">
+							    	<select class="form-control">
+									  <option>JY-揭阳国际机场</option>
+									  <option>GZ-广州白云机场</option>
+									  <option>GZ-广州白云机场</option>
+									  <option>GZ-广州白云机场</option>
+									  <option>GZ-广州白云机场</option>
+									</select>
+							    </div>
 							</div>
-				   			
-									
-							<button type="submit" class="btn btn-warning pull-right ">搜索机票</button>
-				   		</form>	
-		    		</div>
+							<div class="form-group">
+							   <label class="control-label col-md-2">出发日期</label>
+							   <div class="col-md-5">
+							   	  <input type="text" class="form-control" onclick="WdatePicker()">
+							   </div>
+							   <div class="col-md-2">
+							   		<input type="submit" class="btn btn-warning" value="搜索机票">
+							   </div>
+							</div>			   						   											
+							
+				   	</form>	
 		    	</div>
 		    </section>
 		    <!--机票信息部分-->
@@ -76,7 +91,7 @@
 			    <div class="container">
 			    	<div class="row">
 			    		<!--信息头-->
-			    		<div class="panel panel-info pb-1">
+			    		<div class="panel panel-default pb-1">
 			    			<div class="panel-body ">
 			    				<div class="col-md-2">航班信息</div>
 			    				<div class="col-md-2 text-center">起飞时间</div>

@@ -1,19 +1,4 @@
 $(function(){
-	//联系作者弹出框
-//	$("#author").popover({
-//		trigger : 'click',//鼠标以上时触发弹出提示框
-//      html:true,//开启html 为true的话，data-content里就能放html代码了
-//      content:'<img src="images/qrcode.jpg" height="90" width="90">'
-//	});
-//	
-//	//合作伙伴弹出框
-//	$("#friend").popover({
-//		trigger : 'click',//鼠标以上时触发弹出提示框
-//      html:true,//开启html 为true的话，data-content里就能放html代码了
-//      content:'<p>helloCG</p><P>Email:69676900@qq.com</p>'
-//	});
-	
-//	判断协议是否勾选
 
 	$('#agree').on('click',function(){
 		var isChecked = $('#agree').is(':checked');
@@ -27,3 +12,49 @@ $(function(){
 	
 	
 })
+//表单总验证
+    function checkForm(){
+		window.wxc.xcConfirm("成功","success");
+		var username =$('#username').val();
+		var password =$('#password').val();
+
+	}
+//	检验是否为空
+	function checkNull(input){
+        if(input !=''){
+            return true;
+        }else{
+            return false
+        }
+    }
+
+//	检验手机号
+	function checkPhone(input){
+		var regex = /^1\d{10}$/;
+        /*match表示匹配函数*/
+        if (input.match(regex)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+//	检验邮箱地址
+	function checkEmail(input){
+		var regex = /^\w+([\.\-]\w+)*\@\w+([\.\-]\w+)*\.\w+$/;
+        /*match表示匹配函数*/
+        if (input.match(regex)) {
+            return true;
+        } else {
+            return false;
+        }
+	}
+//	检验密码
+	function checkPassword(){
+		var regex = /^[A-Za-z0-9]+$/;
+        /*match表示匹配函数*/
+        if (input.match(regex)) {
+            return true;
+        } else {
+            return false;
+        }
+	}
