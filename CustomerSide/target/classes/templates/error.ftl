@@ -11,7 +11,7 @@
 		<!--错误信息-->
 		<div class="container" style="margin-top: 50px;">
 			<div class="well well-lg" style="height: 450px;">
-				<p class="text-center"><img src="images/error.png"/></p>
+				<p class="text-center"><img src="../../images/error.png"/></p>
 				<br /><br /><br /><br />
 				<p class="text-center">操作失败，请重试！</p>
                 <p class="text-center"><#if error_reason??>错误原因：${error_reason}</#if></p>

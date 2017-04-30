@@ -22,11 +22,11 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right hidden-sm">
                     <#if isLogin == false>
-                        <li><a href="loginPage">登录</a></li>
-                        <li><a href="registePage">注册</a></li>
+                        <li><a href="../../loginPage">登录</a></li>
+                        <li><a href="../../registePage">注册</a></li>
                     <#else>
-                        <li><a href="usercenter">个人中心</a></li>
-                        <li><a href="logout">登出</a></li>
+                        <li><a href="../../usercenter">个人中心</a></li>
+                        <li><a href="../../logout">登出</a></li>
                     </#if>
 
                 </ul>
