@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+	<link rel="stylesheet" type="text/css" href="lib/xcConfirm/css/xcConfirm.css"/>
 	<link rel="stylesheet" type="text/css" href="css/header.css"/>
 	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 	<link rel="stylesheet" type="text/css" href="css/login.css"/>
@@ -50,7 +51,7 @@
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<form class="form-horizontal" action="#" method="post">
+						<form class="form-horizontal" action="" method="post" onsubmit="return checkForm()">
 							<div class="form-group">
 							    <div class="input-group col-md-offset-4 col-md-4">
 				            		<label for="username" class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></label>
@@ -79,7 +80,7 @@
 				            </div>
 				            <div class="form-group">
 				            	<div class="col-md-offset-7">
-				            		<input type="submit" class="btn btn-primary" value="登录"/>
+				            		<input type="submit" class="btn btn-primary" value="登录" />
 				            	</div>
 				            </div>
 						</form>
@@ -96,6 +97,7 @@
 	</footer>
 	<script src="lib/jquery/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="lib/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/xcConfirm/js/xcConfirm.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/login.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
