@@ -1,7 +1,7 @@
 $(function(){
     //	通过服从协议判断是否禁用下一步按钮
 	$('#agree').on('click',function(){
-		var isChecked = $('#agree').is(':checked');
+		var isChecked = $(this).is(':checked');
 		if(isChecked){
 			$('#next').removeAttr("disabled");
 		}else{
