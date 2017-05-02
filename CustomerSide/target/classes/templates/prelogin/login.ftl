@@ -24,7 +24,7 @@
                     </#if>
                             </h2>
                         </div>
-						<form class="form-horizontal" action="loginconfirm" method="post">
+						<form class="form-horizontal" action="loginconfirm" method="post" onsubmit="return submitCheck()">
 							<div class="form-group">
 							    <div class="input-group col-md-offset-4 col-md-4">
 				            		<label for="username" class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></label>
@@ -58,5 +58,25 @@
 	<#include "/include/pagefoot.ftl"/>
 
 	<script src="customized/js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		function submitCheck() {
+			var username = $("#username").val();
+			var password = $("#loginPassword").val();
+			if(username==null || username==""){
+			    window.wxc.xcConfirm("用户名不能为空","error");
+			    return false;
+			}else if(password==null || password==""){
+                window.wxc.xcConfirm("密码不能为空","error");
+                return false;
+			}else{
+			    return true;
+			}
+        }
+
+        function isEmail(str){
+            var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+            return reg.test(str);
+        }
+	</script>
 </body>
 </html>

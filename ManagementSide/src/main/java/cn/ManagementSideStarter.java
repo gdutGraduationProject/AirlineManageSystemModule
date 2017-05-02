@@ -14,10 +14,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("cn.bean")
 @EnableJpaRepositories("cn.bean.repository")
 @ComponentScan(basePackages = {"cn.controller","cn.service","cn.interceptor","cn.configuration"})
-public class Starter {
+public class ManagementSideStarter {
 
     public static void main(String[] args) {
-        SpringApplication.run(Starter.class,args);
+        SpringApplication.run(ManagementSideStarter.class,args);
 
     }
 

@@ -3,6 +3,7 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/customized/css/iconfont.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/customized/css/header.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/customized/css/footer.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/xcConfirm/css/xcConfirm.css"/>
 
 
 <script src="${ctx}/jquery/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>

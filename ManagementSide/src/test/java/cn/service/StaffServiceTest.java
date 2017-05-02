@@ -1,6 +1,6 @@
 package cn.service;
 
-import cn.Starter;
+import cn.ManagementSideStarter;
 import cn.bean.Staff;
 import cn.bean.repository.StaffRepo;
 import org.junit.Test;
@@ -19,7 +19,7 @@ import java.util.List;
  * Created by ChenGeng on 2017/3/22.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Starter.class)
+@SpringApplicationConfiguration(classes = ManagementSideStarter.class)
 @WebAppConfiguration
 public class StaffServiceTest {
 

@@ -1,6 +1,8 @@
 package cn.controller;
 
+import cn.bean.Airport;
 import cn.bean.Customer;
+import cn.service.AirportService;
 import cn.service.CustomerService;
 import cn.util.GlobalContants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,8 +23,13 @@ public class LoginController {
     @Autowired
     CustomerService customerService;
 
+    @Autowired
+    AirportService airportService;
+
     @RequestMapping(value = {"","index"})
-    public String indexJump(){
+    public String indexJump(HttpServletRequest request){
+        List<Airport> airportList = airportService.findAllAirport();
+        request.setAttribute("airportList",airportList);
         return "index";
     }
 

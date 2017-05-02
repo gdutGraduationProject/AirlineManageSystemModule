@@ -3,6 +3,7 @@ package cn.service;
 import cn.bean.Customer;
 import cn.bean.repository.CustomerRepo;
 import cn.util.MD5Encrypt;
+import cn.util.UuidGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +20,8 @@ public class CustomerService {
     CustomerRepo customerRepo;
 
     MD5Encrypt md5Encrypt = new MD5Encrypt();
+
+    UuidGenerator uuidGenerator = new UuidGenerator();
 
     public Customer findCustomerById(String id){
         return customerRepo.findOne(id);
@@ -106,6 +109,16 @@ public class CustomerService {
     }
 
     /**
+     * 修改用户的验证邮箱
+     */
+    public Customer updateCustomerEmail(Customer customer, String newEmail){
+        customer.setCheckedEmail(null);
+        customer.setNewEmail(newEmail);
+        customer.setUrlCode(uuidGenerator.uuidGenerate());
+        return customerRepo.save(customer);
+    }
+
+    /**
      * 判断该字符串是不是全为数字
      * @param string 需要判断的字符串
      * @return 结果
@@ -118,5 +131,6 @@ public class CustomerService {
         }
         return true;
     }
+
 
 }

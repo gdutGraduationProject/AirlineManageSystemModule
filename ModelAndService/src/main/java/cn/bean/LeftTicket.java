@@ -22,7 +22,7 @@ public class LeftTicket extends BaseDomain{
     /**
      * 出发日期
      */
-    private Date departureDate;
+    private String departureDate;
 
     /**
      * 航班信息
@@ -59,14 +59,6 @@ public class LeftTicket extends BaseDomain{
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Date getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(Date departureDate) {
-        this.departureDate = departureDate;
     }
 
     public Airline getAirline() {
@@ -107,5 +99,13 @@ public class LeftTicket extends BaseDomain{
 
     public void setLeftTicketClassList(List<LeftTicketClass> leftTicketClassList) {
         this.leftTicketClassList = leftTicketClassList;
+    }
+
+    public String getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(String departureDate) {
+        this.departureDate = departureDate;
     }
 }

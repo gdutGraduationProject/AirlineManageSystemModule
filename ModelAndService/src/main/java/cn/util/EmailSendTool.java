@@ -25,11 +25,33 @@ public class EmailSendTool {
     // 网易163邮箱的 SMTP 服务器地址为: smtp.163.com
      String myEmailSMTPHost = "smtp.qq.com";
 
+    /**
+     * 修改验证邮箱的验证
+     * @param customer
+     */
+     public void sendUpdateEmail(Customer customer){
+         String emailTitle = new String("【航空售票系统】航空售票系统修改验证邮箱");
+         StringBuffer buffer = new StringBuffer();
+         buffer.append("您好，欢迎来到航空售票管理系统。您正在申请修改登录邮箱的操作，请点击下面的链接以验证帐号:");
+         buffer.append(GlobalContants.SYSTEM_DOMAIN_ADDRESS);
+         buffer.append(":");
+         buffer.append(GlobalContants.SYSTEM_CUSTOMER_PORTID);
+         buffer.append("/registeverify?customerid=");
+         buffer.append(customer.getId());
+         buffer.append("&uri=");
+         buffer.append(customer.getUrlCode());
+         String emailContent = buffer.toString();
+         sendEmail(customer.getNewEmail(),customer.getRealName(),emailTitle,emailContent);
+     }
 
+    /**
+     * 新用户注册的验证
+     * @param customer
+     */
      public void sendConfirmEmail(Customer customer) {
         String emailTitle = new String("【航空售票系统】航空售票系统账号激活");
         StringBuffer buffer = new StringBuffer();
-        buffer.append("您好，欢迎来到航空售票管理系统。请点击下面的链接以激活帐号:");
+        buffer.append("您好，欢迎来到航空售票管理系统。您正在使用该邮箱进行注册操作，请点击下面的链接以激活帐号:");
         buffer.append(GlobalContants.SYSTEM_DOMAIN_ADDRESS);
         buffer.append(":");
         buffer.append(GlobalContants.SYSTEM_CUSTOMER_PORTID);
@@ -41,7 +63,7 @@ public class EmailSendTool {
         sendEmail(customer.getNewEmail(),customer.getRealName(),emailTitle,emailContent);
      }
 
-    boolean sendEmail(String receiveMailAccount,String receiveName, String emailTitle, String emailContent)  {
+    private boolean sendEmail(String receiveMailAccount,String receiveName, String emailTitle, String emailContent)  {
         // 1. 创建参数配置, 用于连接邮件服务器的参数配置
         Properties props = new Properties();                    // 参数配置
         props.setProperty("mail.transport.protocol", "smtp");   // 使用的协议（JavaMail规范要求）
@@ -110,7 +132,7 @@ public class EmailSendTool {
      * @return
      * @throws Exception
      */
-    public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail, String receiveName, String emailTitle, String emailContent) throws Exception {
+    private MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail, String receiveName, String emailTitle, String emailContent) throws Exception {
         // 1. 创建一封邮件
         MimeMessage message = new MimeMessage(session);
 

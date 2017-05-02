@@ -26,7 +26,7 @@ public class AirportService {
     }
 
     /**
-     * 找到所有为被删除的airport
+     * 找到所有未被删除的airport
      */
     public Page findAirportList(Pageable pageable){
         return airportRepo.findByIsDelete(false,pageable);

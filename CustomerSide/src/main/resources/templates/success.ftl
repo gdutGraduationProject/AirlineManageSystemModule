@@ -15,7 +15,7 @@
 			<div class="well well-lg" style="height: 450px;">
 				<p class="text-center"><img src="../../images/success.png"/></p>
 				<br /><br /><br /><br />
-				<p class="text-center">${success_text}</p>
+				<p class="text-center">${success_text!}</p>
 			</div>
 			
 		</div>

@@ -29,7 +29,7 @@
 								<h3 class="panel-title"><i class="fa fa-key"></i>修改密码</h3>
 							</div>
 							<div class="panel-body">
-								<form action="../../personalcenter/password/update" class="form-horizontal">
+								<form action="/update" class="form-horizontal">
 									 <div class="form-group">
 									    <label for="oldpsw" class="col-md-2 control-label">当前密码</label>
 									    <div class="col-md-3">
