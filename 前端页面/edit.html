@@ -5,6 +5,7 @@
 		<title>编辑和修改旅客</title>
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="lib/xcConfirm/css/xcConfirm.css"/>
 	<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
 	<link rel="stylesheet" type="text/css" href="css/header.css"/>
 	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
@@ -63,7 +64,7 @@
 						  	
 						  </div>
 						  <div class="panel-body">
-						   		<form action="" class="form-horizontal">
+						   		<form action="" class="form-horizontal" onsubmit="return checkForm()">
 									 <div class="form-group">
 									    <label for="newuser" class="col-md-2 control-label">姓名</label>
 									    <div class="col-md-3">
@@ -92,7 +93,7 @@
 									    <label for="" class="col-md-2 control-label">性别</label>
 									    <div class="col-md-3">
 									    	<label class="radio-inline">
-											  <input type="radio" name="sex" value="male"> 男
+											  <input type="radio" name="sex" value="male" checked="checked"> 男
 											</label>
 											<label class="radio-inline">
 											  <input type="radio" name="sex" value="female"> 女
@@ -118,5 +119,9 @@
 	            &copy; AirManagement System by  <a href="">HighnessE</a>.
 	        </div>
 		</footer>
+	<script src="lib/jquery/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/xcConfirm/js/xcConfirm.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/edit.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

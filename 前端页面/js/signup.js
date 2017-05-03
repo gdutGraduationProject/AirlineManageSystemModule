@@ -56,7 +56,7 @@ $(function(){
 			window.wxc.xcConfirm("密保答案不能为空","error");
 			return false;
 		}else if(checkAnswer(answer)){
-			window.wxc.xcConfirm("密保答案格式错误，只能由2到5个汉字组成","error");
+			window.wxc.xcConfirm("密保答案格式错误，只能由3汉字组成","error");
 			return false;
 		}else if(rgpassword==null||rgpassword==""){
 			window.wxc.xcConfirm("密码不能为空","error");
@@ -79,7 +79,7 @@ $(function(){
     	}
     //判断真实姓名
     	function checkRealName(str){
-    		var reg =/[\u4E00-\u9FA5]{2,4}/;
+    		var reg =/^[\u4e00-\u9fa5]{2,4}$/;
     		return reg.test(str);
     	}
     //检验身份证号
@@ -97,13 +97,13 @@ $(function(){
 	        var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 	    	return reg.test(str);
 		}
-	//检验密保，2到5个汉字
+	//检验密保，3个汉字
 		function checkAnswer(str){
-			var reg=/^[\u4e00-\u9fa5]{2,5}$/;
+			var reg=/[\u4e00-\u9fa5]{3}/;
 			return reg.test(str);
 		}
 	//检验密码
 		function checkPassword(str){
 			var reg = /^[a-z0-9]+$/;	//只能输入由数字和26个英文小写字母组成的字符串
-	          return reg.test(str);
+	        return reg.test(str);
 		}	
