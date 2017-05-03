@@ -117,6 +117,7 @@ public class EmailSendTool {
             // 7. 关闭连接
             transport.close();
         }catch (Exception e){
+            e.printStackTrace();
             isFlag = false;
         }
         return isFlag;

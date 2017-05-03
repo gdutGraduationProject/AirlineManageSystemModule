@@ -94,7 +94,7 @@ public class UpdateInformationController {
             session.setAttribute(GlobalContants.SESSION_LOGIN_CUSTOMER, customer);
             emailSendTool.sendUpdateEmail(customer);
             request.setAttribute(GlobalContants.REQUEST_SUCCESS_TEXT,"修改成功，请到邮箱收件箱中点击确认链接以验证邮箱地址");
-            return "true";
+            return "redirect:/personalcenter/password/updateemail";
         }
     }
 

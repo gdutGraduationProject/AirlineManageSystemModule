@@ -31,7 +31,7 @@
 							<div class="panel-body">
 								<form action="/personalcenter/password/updateemail" class="form-horizontal">
 									<div class="form-group">
-									    <p class="col-md-4">当前邮箱：<span>${customer.checkedEmail}</span></p>
+									    <p class="col-md-4">当前邮箱：<span>${customer.checkedEmail!}</span></p>
 									</div>
 									<div class="form-group">
 									    <label  class="col-md-2 control-label">新邮箱</label>
