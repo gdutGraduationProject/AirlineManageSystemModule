@@ -32,6 +32,7 @@ public class TicketSearchController {
         Airport destinateAirport = airportService.findById(destinateId);
         Date departureDate = dateTransformTool.datePickerStringToDate(departure);
         List<Airline> airlineList = airlineService.airlineSearch(departureAirport,destinateAirport,departureDate);
+
         return "success";
     }
 

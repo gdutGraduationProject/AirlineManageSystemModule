@@ -108,4 +108,54 @@ public class LeftTicket extends BaseDomain{
     public void setDepartureDate(String departureDate) {
         this.departureDate = departureDate;
     }
+
+    /*
+     该方法用于设置最低价格，
+        使用方法1：初始化该对象时调用，且只能在调用初始化LeftTicketClass之后调用
+        使用方法2：改变当日机票后调用
+     */
+    private void updateMinPrice(){
+        if (this.getLeftTicketClassList()==null || this.getLeftTicketClassList().size()==0 ){
+            return;
+        }else {
+        double minPrice = this.getLeftTicketClassList().get(0).getCurPrice();
+        for (LeftTicketClass leftTicketClass:this.getLeftTicketClassList()){
+            if (leftTicketClass.getCurPrice()<minPrice){
+                minPrice = leftTicketClass.getCurPrice();
+            }
+        }
+        this.setMinPrice(minPrice);
+        }
+    }
+
+    /*
+     该方法用于设置剩余机票和已售机票
+     */
+    private void updateTicketCount(){
+        if (this.getLeftTicketClassList()==null || this.getLeftTicketClassList().size()==0 ){
+            return;
+        }else {
+            int leftCount = 0;
+            int soldCount = 0;
+            for(LeftTicketClass leftTicketClass:leftTicketClassList){
+                leftCount += leftTicketClass.getLeftCount();
+                soldCount += leftTicketClass.getSaleCount();
+            }
+            this.setLeftTicketCount(leftCount);
+            this.setSaleTicketCount(soldCount);
+        }
+    }
+
+    @Override
+    protected  void prePersist(){
+        setCreateDate(new Date());
+        setVersion(1);
+        setIsDelete(false);
+    }
+
+    @Override
+    protected void preUpdate(){
+        setUpdateDate(new Date());
+        setVersion(getVersion()+1);
+    }
 }

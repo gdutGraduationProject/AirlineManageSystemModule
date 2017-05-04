@@ -1,5 +1,6 @@
 package cn.bean.repository;
 
+import cn.bean.Airline;
 import cn.bean.LeftTicket;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -9,4 +10,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface LeftTicketRepo extends CrudRepository<LeftTicket,String> {
+
+    public LeftTicket findByIsDeleteAndAirlineAndDepartureDate(boolean isDelete, Airline airline, String departureDate);
+
 }
