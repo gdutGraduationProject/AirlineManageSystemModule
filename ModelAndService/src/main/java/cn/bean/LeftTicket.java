@@ -151,11 +151,15 @@ public class LeftTicket extends BaseDomain{
         setCreateDate(new Date());
         setVersion(1);
         setIsDelete(false);
+        updateMinPrice();
+        updateTicketCount();
     }
 
     @Override
     protected void preUpdate(){
         setUpdateDate(new Date());
         setVersion(getVersion()+1);
+        updateMinPrice();
+        updateMinPrice();
     }
 }
