@@ -26,13 +26,6 @@ public class LoginController {
     @Autowired
     AirportService airportService;
 
-    @RequestMapping(value = {"","index"})
-    public String indexJump(HttpServletRequest request){
-        List<Airport> airportList = airportService.findAllAirport();
-        request.setAttribute("airportList",airportList);
-        return "index";
-    }
-
     @RequestMapping("loginPage")
     public String loginPage(){
         return "prelogin/login";

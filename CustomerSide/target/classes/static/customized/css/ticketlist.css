@@ -1,0 +1,70 @@
+
+
+/*机票展示区域*/
+.form-control{
+	padding: 6px 6px;
+}
+#ticketInfo{
+	margin-top: 30px;
+}
+#ticketInfo .panel.pb-1{
+	margin-bottom: 10px;
+	background-color: #F5F5F5;
+	
+}
+#ticketInfo #headingOne,#ticketInfo #headingTwo,#ticketInfo #headingThree{
+	background-color: #fff;
+	height: 100px;
+}
+#ticketInfo #headingOne > div,#ticketInfo #headingTwo >div,#ticketInfo #headingThree >div{
+	margin: 20px auto;
+}
+.fa-long-arrow-right{
+	font-size: 40px;
+	color: #CCCCCC;
+}
+#ticketInfo .airName{
+	color:#4D4D4D ;
+	font-weight: 700;
+}
+#ticketInfo .airModel{
+	color:#999999 ;
+	border-bottom: 1px dashed #999999;
+}
+#ticketInfo .vCenter{
+	padding-top: 10px;
+}
+#ticketInfo .goTime,#ticketInfo .arriveTime{
+	font-size: 18px;
+	font-weight: 700;
+	color:#4D4D4D ;
+}
+#ticketInfo .tPrice{
+	font-size: 28px;
+	color: orangered;
+}
+#ticketInfo ul > li{
+	height: 50px;
+}
+/*脚注部分*/
+
+footer {
+	padding: 30px 0;
+	background: #333;
+	text-align: center;
+}
+
+.footer-copyright {
+	margin: 15px 0 0 0;
+	font-size: 18px;
+    line-height: 32px;
+    color: #fff;
+}
+
+.footer-copyright a {
+	color: #fff;
+	border-bottom: 1px dashed #eee;
+}
+.footer-copyright a:hover { 
+	border: 0; 
+}

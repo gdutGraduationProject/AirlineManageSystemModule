@@ -40,7 +40,9 @@ public class TicketSearchController {
         List<Airline> airlineList = airlineService.airlineSearch(departureAirport,destinateAirport,departureDate);
         List<LeftTicket> leftTicketList = leftTicketService.findLeftTicketListByAirline(airlineList,departure);
         request.setAttribute("leftTicketList", leftTicketList);
-        return "success";
+        List<Airport> airportList = airportService.findAllAirport();
+        request.setAttribute("airportList",airportList);
+        return "ticketlist";
     }
 
 }

@@ -4,6 +4,7 @@ import cn.bean.Airline;
 import cn.bean.AirlineClass;
 import cn.bean.LeftTicket;
 import cn.bean.LeftTicketClass;
+import cn.bean.repository.LeftTicketClassRepo;
 import cn.bean.repository.LeftTicketRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,9 @@ public class LeftTicketService {
 
     @Autowired
     LeftTicketRepo leftTicketRepo;
+
+    @Autowired
+    LeftTicketClassRepo leftTicketClassRepo;
 
     /**
      * 根据单个航班查找该航班在该日期的余票信息并返回
@@ -51,12 +55,13 @@ public class LeftTicketService {
         for(AirlineClass airlineClass:airline.getAirlineClassList()){
             LeftTicketClass leftTicketClass = new LeftTicketClass();
             leftTicketClass.setAirlineClass(airlineClass);
-            leftTicketClass.setTotalCount(airlineClass.getTotalCount());
-            leftTicketClass.setTotalCount(airlineClass.getTotalCount());
+            leftTicketClass.setTotalCount(airlineClass.getPlaneClass().getTotalCount());
+            leftTicketClass.setLeftCount(airlineClass.getPlaneClass().getTotalCount());
             leftTicketClass.setSaleCount(0);
             leftTicketClass.setFullPrice(airlineClass.getFullPrice());
             leftTicketClass.setDiscount(airlineClass.getDefaultDiscount());
             leftTicketClass.setCurPrice(leftTicketClass.getFullPrice()/leftTicketClass.getDiscount()*100);
+            leftTicketClass = leftTicketClassRepo.save(leftTicketClass);
             leftTicketClassList.add(leftTicketClass);
         }
         leftTicket.setLeftTicketClassList(leftTicketClassList);
