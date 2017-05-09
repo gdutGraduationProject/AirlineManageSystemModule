@@ -50,13 +50,13 @@ dd{
 	font-size: 30px;
 	color: orange;
 }
-
-ul,li{
-	float: left;
+.user-check{
+	position: relative;
 }
-ul{
-	list-style: none;
-}
-li{
-	margin-right: 30px;
+.user-info{
+	display: none;
+	width: 200px;
+	position: absolute;
+	top:34px;
+	z-index: 10;
 }

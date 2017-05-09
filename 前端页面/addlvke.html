@@ -55,54 +55,68 @@
 						</div>
 						<div class="panel-body">
 							<form action="" method="post">
-								<div class="btn-group" data-toggle="buttons">
-								   <label class="btn btn-default">
-								     <input type="checkbox" autocomplete="off" > 孙悟空
-								   </label>
-								   <label class="btn btn-default">
-								     <input type="checkbox" autocomplete="off"> 猪八戒
-								   </label>
-								   <label class="btn btn-default">
-								     <input type="checkbox" autocomplete="off"> 沙和尚
-								   </label>
-							   	   <label class="btn btn-default">
-								     <input type="checkbox" autocomplete="off">唐三藏
-								   </label>
-								   <label class="btn btn-default">
-								     <input type="checkbox" autocomplete="off">牛魔王
-								   </label>
-								   <label class="btn btn-default">
-								     <input type="checkbox" autocomplete="off">岳云鹏
-								   </label>
+								<div class="btn-group user-check" data-toggle="buttons">	
+									<label class="btn btn-default">
+								      <input type="checkbox" autocomplete="off" > 孙悟空
+								    </label>
+								    <div class="user-info">
+								     	<ul class="list-group">
+								     		<li class="list-group-item">姓名：孙悟空</li>
+								     		<li class="list-group-item">身份证：111111111111111</li>
+								     		<li class="list-group-item">手机号：13288888888</li>
+								     	</ul>
+								    </div>							    
+								    <label class="btn btn-default">
+								      <input type="checkbox" autocomplete="off"> 猪八戒
+								    </label>
+								    <div class="user-info">
+								     	<ul class="list-group">
+								     		<li class="list-group-item">姓名：猪八戒</li>
+								     		<li class="list-group-item">身份证：111111111111111</li>
+								     		<li class="list-group-item">手机号：13288888888</li>
+								     	</ul>
+								    </div>
+								    <label class="btn btn-default">
+								      <input type="checkbox" autocomplete="off"> 沙和尚
+								    </label>
+								    <div class="user-info">
+								     	<ul class="list-group">
+								     		<li class="list-group-item">姓名：沙和尚</li>
+								     		<li class="list-group-item">身份证：111111111111111</li>
+								     		<li class="list-group-item">手机号：13288888888</li>
+								     	</ul>
+								    </div>
 								</div>
+								<hr />
+								<div class="panel panel-default alert alert-dismissible" style="display: none;">	
+									<button type="button" class="close" data-dismiss='alert'>&times;</button>
+									<div class="panel-body">
+										<div class="col-md-7 left">
+											<div class="col-md-12 fw">
+												<input type="text"  />
+											</div>
+											<div class="col-md-12">
+												身份证：<input type="text" class="fw"/>
+											</div>
+											<div class="col-md-12 fw">
+												<input type="text" />
+											</div>								
+										</div>
+										<div class="col-md-5 right">								
+											<div class="price">¥200</div>
+										</div>
+									</div>
+								</div>
+								<button type="button" class="btn btn-default add">+添加乘客</button>
+								<hr />
+								<button type="submit" class="btn btn-primary btn-block">下一步</button>
 							</form>							
 						</div>
 					</div>
-					<div class="panel panel-default alert alert-dismissible">	
-						<button type="button" class="close" data-dismiss='alert'>&times;</button>
-						<div class="panel-body">
-							<div class="col-md-7 left">
-								<div class="col-md-12 fw">
-									<input type="text"  value="" />
-								</div>
-								<div class="col-md-12">
-									身份证：<input type="text" value="" class="fw"/>
-								</div>
-								<div class="col-md-12 fw">
-									<input type="text" value="" />
-								</div>								
-							</div>
-							<div class="col-md-5 right">								
-								<div class="price">¥200</div>
-							</div>
-						</div>
-					</div>
-					<button type="button" class="btn btn-default add">+添加乘客</button>
-					<hr />
-					<button type="submit" class="btn btn-primary btn-block">下一步</button>
+					
 					<br/>
 				</div>
-
+				<!--右侧机票信息-->
 				<div class="col-md-4 text-center bg">
 					<dl>
 						<dt>05-07</dt>
@@ -133,6 +147,7 @@
 		</div>
 		
 	</section>
+	<!--页脚-->
 	<footer id="footer" >
 		<div class="footer-copyright">
             &copy; AirManagement System by  <a href="">HighnessE</a>.
@@ -141,23 +156,18 @@
 	<script src="lib/jquery/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="lib/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="lib/xcConfirm/js/xcConfirm.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/addlvke.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-
-//	$(":checkbox").on("click",function(){
-//		var box = $(".panel.alert").clone(true);	
-//		var isChecked = $(this).is(':checked');
-//		if (isChecked) {
-//			box.insertBefore(".add");
-//		}
-//	})
-$(function(){
-	var box = $(".panel.alert").clone(true);	
- 	$(".add").on("click",function(){
- 		
- 		box.insertBefore(".add");
- 	})
-})
-   
+		$(function(){
+		//	增加旅客按钮
+		 	$(".add").on("click",function(){		
+		 		var box = $(".panel.alert").eq(0).clone();
+		 		box.removeAttr("style");	
+		 		box.insertBefore(".add");
+		 		
+		 	})
+		
+		})
 
 	</script>
 	</body>
