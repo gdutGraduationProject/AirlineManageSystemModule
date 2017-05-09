@@ -4,12 +4,12 @@
 	<meta charset="UTF-8" />
 	<title>操作成功</title>
 
-<#include "/include/resources.ftl">
+<#include "../../include/resources.ftl">
 </head>
 <body>
 
 
-<#include "/include/pagehead.ftl"/>
+<#include "../../include/pagehead.ftl"/>
 
 		<div class="container" style="margin-top: 50px;">
 			<div class="well well-lg" style="height: 450px;">
@@ -20,9 +20,9 @@
 			
 		</div>
 
-<#include "/include/pagefoot.ftl"/>
+<#include "../../include/pagefoot.ftl"/>
 
 
-	<script src="customized/js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../customized/js/index.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

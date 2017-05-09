@@ -12,11 +12,11 @@
 	background-color: #F5F5F5;
 	
 }
-#ticketInfo #headingOne,#ticketInfo #headingTwo,#ticketInfo #headingThree{
+#ticketInfo .panel-heading{
 	background-color: #fff;
 	height: 100px;
 }
-#ticketInfo #headingOne > div,#ticketInfo #headingTwo >div,#ticketInfo #headingThree >div{
+#ticketInfo .panel-heading >div{
 	margin: 20px auto;
 }
 .fa-long-arrow-right{

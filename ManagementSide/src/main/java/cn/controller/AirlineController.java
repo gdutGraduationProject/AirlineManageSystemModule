@@ -129,6 +129,7 @@ public class AirlineController {
             String inputName = new String("planeClassId"+i);
             String planeClassId = request.getParameter(inputName);
             PlaneClass planeClass = findPlaneClassByIdInList(planeClassId,plane.getPlaneClassList());
+            airlineClass.setName(planeClass.getName());
             airlineClass.setPlaneClass(planeClass);
             inputName = new String("fullPrice"+i);
             double fullPrice = Double.valueOf(request.getParameter(inputName));

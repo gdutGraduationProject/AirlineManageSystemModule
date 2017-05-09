@@ -1,5 +1,6 @@
 package cn.configuration;
 
+import cn.interceptor.LoginInterceptor;
 import cn.interceptor.PageHeadInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,9 +18,13 @@ public class MyMvcConfiguration extends WebMvcConfigurerAdapter {
     @Autowired
     PageHeadInterceptor pageHeadInterceptor;
 
+    @Autowired
+    LoginInterceptor loginInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry){
         registry.addInterceptor(pageHeadInterceptor).addPathPatterns("/**");
+        registry.addInterceptor(loginInterceptor).addPathPatterns("/buyticket/**","personalcenter/**");
     }
 
     @Bean

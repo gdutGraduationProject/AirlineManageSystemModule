@@ -47,6 +47,13 @@ public class LeftTicketService {
         return leftTicketList;
     }
 
+    /**
+     * 根据id找到对应的LeftTicket
+     */
+    public LeftTicket findById(String id){
+        return leftTicketRepo.findOne(id);
+    }
+
     private LeftTicket initLeftTicket(Airline airline, String dateString){
         LeftTicket leftTicket = new LeftTicket();
         leftTicket.setAirline(airline);
@@ -60,7 +67,7 @@ public class LeftTicketService {
             leftTicketClass.setSaleCount(0);
             leftTicketClass.setFullPrice(airlineClass.getFullPrice());
             leftTicketClass.setDiscount(airlineClass.getDefaultDiscount());
-            leftTicketClass.setCurPrice(leftTicketClass.getFullPrice()/leftTicketClass.getDiscount()*100);
+            leftTicketClass.setCurPrice(Math.rint(leftTicketClass.getFullPrice()/leftTicketClass.getDiscount()*100));
             leftTicketClass = leftTicketClassRepo.save(leftTicketClass);
             leftTicketClassList.add(leftTicketClass);
         }

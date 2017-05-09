@@ -1,6 +1,5 @@
 package cn.interceptor;
 
-import cn.bean.Staff;
 import cn.util.GlobalContants;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -14,17 +13,17 @@ import javax.servlet.http.HttpSession;
  * Created by ChenGeng on 2017/3/19.
  */
 @Component
-public class AdminLoginInterceptor implements HandlerInterceptor {
+public class LoginInterceptor implements HandlerInterceptor {
 
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         HttpSession session = request.getSession();
-        Object object = session.getAttribute(GlobalContants.SESSION_LOGIN_STAFF);
+        Object object = session.getAttribute(GlobalContants.SESSION_LOGIN_CUSTOMER);
         if(object==null){
             //该用户尚未登录
             request.setAttribute(GlobalContants.SESSION_LOGIN_BACK_URL,request.getRequestURI());
-            response.sendRedirect("/loginPage");
+            response.sendRedirect("/admin/login");
             return false;
         }else{
             //该用户已经登录
