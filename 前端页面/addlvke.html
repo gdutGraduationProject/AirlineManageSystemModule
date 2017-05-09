@@ -55,15 +55,16 @@
 						</div>
 						<div class="panel-body">
 							<form action="" method="post">
+								<input type="hidden" name="classCount" id="classCount" value="0" />
 								<div class="btn-group user-check" data-toggle="buttons">	
 									<label class="btn btn-default">
 								      <input type="checkbox" autocomplete="off" > 孙悟空
 								    </label>
 								    <div class="user-info">
 								     	<ul class="list-group">
-								     		<li class="list-group-item">姓名：孙悟空</li>
-								     		<li class="list-group-item">身份证：111111111111111</li>
-								     		<li class="list-group-item">手机号：13288888888</li>
+								     		<li class="list-group-item list-group-item-success">姓名：孙悟空</li>
+								     		<li class="list-group-item list-group-item-success">身份证：111111111111111</li>
+								     		<li class="list-group-item list-group-item-success">手机号：13288888888</li>
 								     	</ul>
 								    </div>							    
 								    <label class="btn btn-default">
@@ -71,9 +72,9 @@
 								    </label>
 								    <div class="user-info">
 								     	<ul class="list-group">
-								     		<li class="list-group-item">姓名：猪八戒</li>
-								     		<li class="list-group-item">身份证：111111111111111</li>
-								     		<li class="list-group-item">手机号：13288888888</li>
+								     		<li class="list-group-item list-group-item-success">姓名：猪八戒</li>
+								     		<li class="list-group-item list-group-item-success">身份证：111111111111111</li>
+								     		<li class="list-group-item list-group-item-success">手机号：13288888888</li>
 								     	</ul>
 								    </div>
 								    <label class="btn btn-default">
@@ -81,9 +82,9 @@
 								    </label>
 								    <div class="user-info">
 								     	<ul class="list-group">
-								     		<li class="list-group-item">姓名：沙和尚</li>
-								     		<li class="list-group-item">身份证：111111111111111</li>
-								     		<li class="list-group-item">手机号：13288888888</li>
+								     		<li class="list-group-item list-group-item-success">姓名：沙和尚</li>
+								     		<li class="list-group-item list-group-item-success">身份证：111111111111111</li>
+								     		<li class="list-group-item list-group-item-success">手机号：13288888888</li>
 								     	</ul>
 								    </div>
 								</div>
@@ -93,13 +94,13 @@
 									<div class="panel-body">
 										<div class="col-md-7 left">
 											<div class="col-md-12 fw">
-												<input type="text"  />
+												<input type="text" id="user" name="user"/>
 											</div>
 											<div class="col-md-12">
-												身份证：<input type="text" class="fw"/>
+												身份证：<input type="text" class="fw" id="idcard" name="idcard"/ >
 											</div>
 											<div class="col-md-12 fw">
-												<input type="text" />
+												<input type="text" id="phone" name="phone"/>
 											</div>								
 										</div>
 										<div class="col-md-5 right">								
@@ -158,17 +159,32 @@
 	<script src="lib/xcConfirm/js/xcConfirm.js" type="text/javascript" charset="UTF-8"></script>
 	<script src="js/addlvke.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
+		  var num=0;
 		$(function(){
 		//	增加旅客按钮
-		 	$(".add").on("click",function(){		
+		  
+		 	$(".add").on("click",function(){	
+		 		var classCount=parseInt($("#classCount").val());
 		 		var box = $(".panel.alert").eq(0).clone();
 		 		box.removeAttr("style");	
-		 		box.insertBefore(".add");
-		 		
+		 		circleChangeInput(box,num);
+		 		num++;
+		 		classCount++;
+		 		box.insertBefore(".add");		 		
 		 	})
 		
 		})
-
+		function circleChangeInput(domList,changeNum) {
+		    var list = domList.children("input");
+		    for(var i=0;i<list.length;i++){
+		        $(list[i]).attr("id",$(list[i]).attr("id")+changeNum);
+		        $(list[i]).attr("name",$(list[i]).attr("name")+changeNum);
+		    }
+		    list = domList.children("div");
+		    for(var i=0;i<list.children().length;i++){
+		        circleChangeInput($(list[i]),changeNum);
+		    }
+		}
 	</script>
 	</body>
 </html>
