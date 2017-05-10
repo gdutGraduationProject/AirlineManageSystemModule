@@ -1,0 +1,11 @@
+$(function(){
+	$(".yes").on("click",function(){
+		window.wxc.xcConfirm("您好，3秒后该页面自动关闭","info");
+		setTimeout(function(){
+			window.history.back();
+		},3000)
+	})
+	$(".no").on("click",function(){
+		window.history.back();
+	})
+})
