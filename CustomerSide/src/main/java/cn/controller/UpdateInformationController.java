@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  * Created by Chen Geng on 2017/4/30.
  */
 @Controller
-@RequestMapping("/personalcenter/password")
+@RequestMapping("/personalcenter/")
 public class UpdateInformationController {
 
     MD5Encrypt md5Encrypt = new MD5Encrypt();

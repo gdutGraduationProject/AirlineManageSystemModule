@@ -1,0 +1,65 @@
+.left input{
+	height: 40px;
+	border: none;
+	border-bottom: 1px solid #CCCCCC;
+	outline: none;
+}
+.left {
+	border-right: 1px dashed #C0C0C0;
+}
+.right{
+	position: relative;
+}
+
+.price{
+	position: absolute;
+	left: 50%;
+	top: 5000%;	
+}
+.fw{
+	font-weight: 700;
+}
+.bg{
+	/*background-color: #F5F9F9;*/
+	border: 2px solid #F5F9F9;
+	padding:30px 0;
+}
+dt,dd{
+	display: inline-block;
+	padding-right: 10px;
+}
+dd{
+	font-weight: 700;
+	font-size: 14px;
+}
+.color{
+	color: #808080;
+}
+.color dd{
+	font-weight: 500;
+}
+.time{
+	font-size: 20px;
+	font-weight: 700;
+}
+.fa-long-arrow-right{
+	font-size: 40px;
+	padding-top: 5px;
+}
+.yuan{
+	font-size: 30px;
+	color: orange;
+}
+.user-check{
+	position: relative;
+}
+.user-info{
+	display: none;
+	width: 200px;
+	position: absolute;
+	top:34px;
+	z-index: 10;
+}
+.list-group{
+	border: 2px solid #222222;
+}

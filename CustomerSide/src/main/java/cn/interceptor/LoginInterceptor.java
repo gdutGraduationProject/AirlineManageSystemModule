@@ -8,6 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by ChenGeng on 2017/3/19.
@@ -22,8 +25,40 @@ public class LoginInterceptor implements HandlerInterceptor {
         Object object = session.getAttribute(GlobalContants.SESSION_LOGIN_CUSTOMER);
         if(object==null){
             //该用户尚未登录
-            request.setAttribute(GlobalContants.SESSION_LOGIN_BACK_URL,request.getRequestURI());
-            response.sendRedirect("/admin/login");
+            session.setAttribute(GlobalContants.SESSION_LOGIN_BACK_URL,request.getRequestURI());
+            Map map=request.getParameterMap();
+            Set keSet=map.entrySet();
+            StringBuffer buffer = new StringBuffer();
+            buffer.append("?");
+            for(Iterator itr = keSet.iterator(); itr.hasNext();){
+
+                Map.Entry me=(Map.Entry)itr.next();
+                Object ok=me.getKey();
+                Object ov=me.getValue();
+                String[] value=new String[1];
+                if(ov instanceof String[]){
+                    value=(String[])ov;
+                }else{
+                    value[0]=ov.toString();
+                }
+
+                for(int k=0;k<value.length;k++){
+                    buffer.append(ok);
+                    buffer.append("=");
+                    buffer.append(value[k]);
+                    buffer.append("&&");
+                }
+            }
+            String parameterString = buffer.toString();
+            if (parameterString.length()==1)
+            {
+                parameterString = new String();
+            }else {
+                parameterString = parameterString.substring(0,parameterString.length()-2);
+            }
+            session.setAttribute(GlobalContants.SESSION_LOGIN_BACK_PARAMETER_STRING,parameterString);
+
+            response.sendRedirect("/loginPage");
             return false;
         }else{
             //该用户已经登录

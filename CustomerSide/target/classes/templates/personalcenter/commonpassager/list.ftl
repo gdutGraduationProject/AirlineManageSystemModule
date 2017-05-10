@@ -26,7 +26,7 @@
 					<div class="col-md-10 well">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-							常用旅客列表：<button class="pull-right btn btn-default btn-sm"><a href="../../usercenter/commonpassager/edit">新增</a></button>
+							常用旅客列表：<button class="pull-right btn btn-default btn-sm"><a href="../../personalcenter/commonpassager/edit">新增</a></button>
 							</div>
 							<div class="panel-body">
 								<table class="table table-condensed">

@@ -24,7 +24,7 @@ public class MyMvcConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry){
         registry.addInterceptor(pageHeadInterceptor).addPathPatterns("/**");
-        registry.addInterceptor(loginInterceptor).addPathPatterns("/buyticket/**","personalcenter/**");
+        registry.addInterceptor(loginInterceptor).addPathPatterns("/buyticket/**","/personalcenter/**");
     }
 
     @Bean

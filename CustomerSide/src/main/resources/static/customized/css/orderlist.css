@@ -1,0 +1,17 @@
+.panel-heading{
+	height: 35px;
+}
+.panel-body .v{
+	line-height: 4;
+}
+.airName{
+	color:#4D4D4D ;
+	font-weight: 700;
+}
+.airModel{
+	color:#999999 ;
+}
+.passenger{
+	color:#4D4D4D ;
+	font-weight: 700;
+}

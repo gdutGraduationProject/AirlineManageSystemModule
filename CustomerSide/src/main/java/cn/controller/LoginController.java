@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by ChenGeng on 2017/2/15.
@@ -42,10 +44,16 @@ public class LoginController {
             session.setAttribute(GlobalContants.SESSION_LOGIN_USER_TYPE, GlobalContants.UserType.CUSTOMER);
             session.setAttribute(GlobalContants.SESSION_LOGIN_CUSTOMER,customer);
             String nextUrl = (String)session.getAttribute(GlobalContants.SESSION_LOGIN_BACK_URL);
+            String parameterString = (String)session.getAttribute(GlobalContants.SESSION_LOGIN_BACK_PARAMETER_STRING);
             if(nextUrl==null || nextUrl.equals("")){
                 nextUrl = new String("/index");
             }
-            return "redirect:"+nextUrl;
+            if(parameterString == null || parameterString.equals("")){
+                return "redirect:"+nextUrl;
+            }else {
+                return "redirect:"+nextUrl+parameterString;
+            }
+
         }
     }
 

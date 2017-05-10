@@ -53,6 +53,12 @@ public class TicketOrder extends BaseDomain {
     Date orderDate;
 
     /**
+     * 顾客是否在订单中心中删除了此订单
+     */
+    @org.hibernate.annotations.Type(type="yes_no")
+    boolean deleteByCustomer;
+
+    /**
      * 顾客
      */
     @OneToOne(optional = true, fetch = FetchType.EAGER)
