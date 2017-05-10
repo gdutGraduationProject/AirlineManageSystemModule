@@ -30,9 +30,9 @@ public class SubOrder {
      */
     int status;
 
-    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-    @JoinColumn(name="ticket_order_id")
-    TicketOrder ticketOrder;
+//    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+//    @JoinColumn(name="ticket_order_id")
+//    TicketOrder ticketOrder;
 
     /**
      * 改签订单
@@ -48,4 +48,51 @@ public class SubOrder {
     @JoinColumn(name = "refund_payment_id")
     Payment payment;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public CommonPassager getCommonPassager() {
+        return commonPassager;
+    }
+
+    public void setCommonPassager(CommonPassager commonPassager) {
+        this.commonPassager = commonPassager;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+//    public TicketOrder getTicketOrder() {
+//        return ticketOrder;
+//    }
+//
+//    public void setTicketOrder(TicketOrder ticketOrder) {
+//        this.ticketOrder = ticketOrder;
+//    }
+
+    public TicketOrder getAlterTicketOrder() {
+        return alterTicketOrder;
+    }
+
+    public void setAlterTicketOrder(TicketOrder alterTicketOrder) {
+        this.alterTicketOrder = alterTicketOrder;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
 }

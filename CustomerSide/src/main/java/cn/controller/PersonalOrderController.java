@@ -27,8 +27,13 @@ public class PersonalOrderController {
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute(GlobalContants.SESSION_LOGIN_CUSTOMER);
         List<TicketOrder> ticketOrderList = ticketOrderService.findOrderByCustomer(customer);
-
-        return "";
+        request.setAttribute("ticketOrder",ticketOrderList);
+        if(ticketOrderList == null || ticketOrderList.size()==0){
+            request.setAttribute("hasOrder","false");
+        }else {
+            request.setAttribute("hasOrder","true");
+        }
+        return "ticketorder/orderlist";
     }
 
 }

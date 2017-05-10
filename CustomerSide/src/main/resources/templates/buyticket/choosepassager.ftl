@@ -28,7 +28,7 @@
 
 									<#list commonPassager as passager>
                                     <label class="btn btn-default">
-                                        <input type="checkbox" autocomplete="off" name="commonPassager" value="${passager.id}" > ${passager.name}
+                                        <input type="checkbox" autocomplete="off" name="commonPassagerId" value="${passager.id}" > ${passager.name}
                                     </label>
                                     <div class="user-info">
                                         <ul class="list-group">
@@ -148,6 +148,7 @@
 		 		circleChangeInput(box,num);
 		 		num++;
 		 		classCount++;
+                $("#classCount").val(classCount);
 		 		box.insertBefore(".add");		 		
 		 	})
 		

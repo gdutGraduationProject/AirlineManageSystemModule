@@ -25,6 +25,13 @@ public class TicketOrder extends BaseDomain {
     Date orderTime;
 
     /**
+     * 航班信息
+     */
+    @OneToOne(optional = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "airline_id")
+    Airline airline;
+
+    /**
      * 订单号
      */
     String orderNum;
@@ -75,5 +82,99 @@ public class TicketOrder extends BaseDomain {
     @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<SubOrder> subOrderList = new ArrayList<SubOrder>();
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Date getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(Date orderTime) {
+        this.orderTime = orderTime;
+    }
+
+    public String getOrderNum() {
+        return orderNum;
+    }
+
+    public void setOrderNum(String orderNum) {
+        this.orderNum = orderNum;
+    }
+
+    public String getFlightDay() {
+        return flightDay;
+    }
+
+    public void setFlightDay(String flightDay) {
+        this.flightDay = flightDay;
+    }
+
+    public int getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(int orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public int getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(int orderType) {
+        this.orderType = orderType;
+    }
+
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public boolean getDeleteByCustomer() {
+        return deleteByCustomer;
+    }
+
+    public void setDeleteByCustomer(boolean deleteByCustomer) {
+        this.deleteByCustomer = deleteByCustomer;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public TicketOrder getMainOrder() {
+        return mainOrder;
+    }
+
+    public void setMainOrder(TicketOrder mainOrder) {
+        this.mainOrder = mainOrder;
+    }
+
+    public List<SubOrder> getSubOrderList() {
+        return subOrderList;
+    }
+
+    public void setSubOrderList(List<SubOrder> subOrderList) {
+        this.subOrderList = subOrderList;
+    }
+
+    public Airline getAirline() {
+        return airline;
+    }
+
+    public void setAirline(Airline airline) {
+        this.airline = airline;
+    }
 }

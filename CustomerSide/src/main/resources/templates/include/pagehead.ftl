@@ -8,14 +8,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="../../index">
                     <i class="iconfont icon-feiji"></i>
                 </a>
             </div>
             <div id="nav_list" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">机票搜索</a></li>
-                    <li><a href="#">航班信息</a></li>
+                    <li><a href="../../index">航班信息</a></li>
                     <li><a href="question.html">常见问题</a></li>
                     <li><a href="travel.html">旅游资讯</a></li>
                     <li><a href="about.html">关于MSA</a></li>
@@ -25,7 +25,7 @@
                         <li><a href="../../loginPage">登录</a></li>
                         <li><a href="../../registePage">注册</a></li>
                     <#else>
-                        <li><a href="../../usercenter">个人中心</a></li>
+                        <li><a href="../../personalcenter/myorder">个人中心</a></li>
                         <li><a href="../../logout">登出</a></li>
                     </#if>
 

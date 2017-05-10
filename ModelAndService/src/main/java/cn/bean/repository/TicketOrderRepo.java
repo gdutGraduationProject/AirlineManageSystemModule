@@ -13,6 +13,6 @@ import java.util.List;
 @Repository
 public interface TicketOrderRepo extends CrudRepository<TicketOrder, String> {
 
-    public List<TicketOrder> findByDeleteByCustomerAndCustomerAndIsDeleteOrderByOrderDate(boolean deleteByCustomer, Customer customer, boolean isDelete);
+    public List<TicketOrder> findByDeleteByCustomerAndCustomerAndIsDeleteOrderByOrderDate(boolean deleteByCustomer, Customer customer, boolean isDelete );
 
 }

@@ -20,15 +20,15 @@
 							<h3 class="panel-title">乘客</h3>
 						</div>
 						<div class="panel-body">
-							<form action="" method="post">
-                                <input type="hidden" name="leftTicket" id="leftTicket" value="${leftTicket.id}" />
-                                <input type="hidden" name="leftTicketClass" id="leftTicketClass" value="${leftTicketClass.id}" />
+							<form action="../../buyticket/submitOrder" method="post">
+                                <input type="hidden" name="leftTicketId" id="leftTicket" value="${leftTicket.id}" />
+                                <input type="hidden" name="leftTicketClassId" id="leftTicketClass" value="${leftTicketClass.id}" />
 								<input type="hidden" name="classCount" id="classCount" value="0" />
 								<div class="btn-group user-check" data-toggle="buttons">
 
 									<#list commonPassager as passager>
                                     <label class="btn btn-default">
-                                        <input type="checkbox" autocomplete="off" name="commonPassager" value="${passager.id}" > ${passager.name}
+                                        <input type="checkbox" autocomplete="off" name="commonPassagerId" value="${passager.id}" > ${passager.name}
                                     </label>
                                     <div class="user-info">
                                         <ul class="list-group">
@@ -148,6 +148,7 @@
 		 		circleChangeInput(box,num);
 		 		num++;
 		 		classCount++;
+                $("#classCount").val(classCount);
 		 		box.insertBefore(".add");		 		
 		 	})
 		

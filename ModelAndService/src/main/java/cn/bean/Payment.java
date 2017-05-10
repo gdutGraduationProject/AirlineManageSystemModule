@@ -55,4 +55,67 @@ public class Payment extends BaseDomain {
     @JoinColumn(name = "customer_id")
     Customer customer;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Date getPaymentTime() {
+        return paymentTime;
+    }
+
+    public void setPaymentTime(Date paymentTime) {
+        this.paymentTime = paymentTime;
+    }
+
+    public String getPaymentNum() {
+        return paymentNum;
+    }
+
+    public void setPaymentNum(String paymentNum) {
+        this.paymentNum = paymentNum;
+    }
+
+    public int getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(int paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public double getPaymentMoney() {
+        return paymentMoney;
+    }
+
+    public void setPaymentMoney(double paymentMoney) {
+        this.paymentMoney = paymentMoney;
+    }
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 }
