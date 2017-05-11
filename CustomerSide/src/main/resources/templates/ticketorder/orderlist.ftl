@@ -34,7 +34,7 @@
                         <div class="panel-heading">
                             <div class="col-md-3">订单号：${order.orderNum}</div>
                             <div class="col-md-5">预定日期：${order.orderTime}</div>
-                            <div class="col-md-1 pull-right"><a href="#" class="btn btn-danger btn-xs" <#if order.orderStatus==1 >style="display: none" </#if>> 删除订单</a></div>
+                            <div class="col-md-1 pull-right"><a href="../../buyticket/deleteorder?id=${order.id}" class="btn btn-danger btn-xs" <#if order.orderStatus==1 >style="display: none" </#if>> 删除订单</a></div>
                         </div>
                         <div class="panel-body">
                             <div class="col-md-2 v">${order.airline.departure.city}-${order.airline.destination.city}</div>

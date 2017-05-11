@@ -88,6 +88,17 @@ public class TicketOrder extends BaseDomain {
     @JoinColumn(name = "left_ticket_class_id")
     LeftTicketClass leftTicketClass;
 
+    @OneToOne(optional = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "left_ticket_id")
+    LeftTicket leftTicket;
+
+    /**
+     * 支付单
+     */
+    @OneToOne(optional = true, fetch = FetchType.EAGER )
+    @JoinColumn(name = "payment_id" )
+    Payment payment;
+
     @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<SubOrder> subOrderList = new ArrayList<SubOrder>();
 
@@ -201,5 +212,21 @@ public class TicketOrder extends BaseDomain {
 
     public void setPayFee(double payFee) {
         this.payFee = payFee;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
+    public LeftTicket getLeftTicket() {
+        return leftTicket;
+    }
+
+    public void setLeftTicket(LeftTicket leftTicket) {
+        this.leftTicket = leftTicket;
     }
 }

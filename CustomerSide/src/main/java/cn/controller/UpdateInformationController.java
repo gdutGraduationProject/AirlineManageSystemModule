@@ -1,7 +1,9 @@
 package cn.controller;
 
 import cn.bean.Customer;
+import cn.bean.TicketOrder;
 import cn.service.CustomerService;
+import cn.service.TicketOrderService;
 import cn.util.EmailSendTool;
 import cn.util.GlobalContants;
 import cn.util.MD5Encrypt;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by Chen Geng on 2017/4/30.
@@ -25,6 +28,9 @@ public class UpdateInformationController {
     CustomerService customerService;
 
     EmailSendTool emailSendTool = new EmailSendTool();
+
+    @Autowired
+    TicketOrderService ticketOrderService;
 
     @RequestMapping("edit")
     public String editPassword(){
@@ -96,6 +102,27 @@ public class UpdateInformationController {
             request.setAttribute(GlobalContants.REQUEST_SUCCESS_TEXT,"修改成功，请到邮箱收件箱中点击确认链接以验证邮箱地址");
             return "redirect:/personalcenter/password/updateemail";
         }
+    }
+
+    @RequestMapping("/myorder")
+    public String searchMyOrder(javax.servlet.http.HttpServletRequest request){
+        HttpSession session = request.getSession();
+        Customer customer = (Customer) session.getAttribute(GlobalContants.SESSION_LOGIN_CUSTOMER);
+        List<TicketOrder> ticketOrderList = ticketOrderService.findOrderByCustomer(customer);
+        request.setAttribute("ticketOrder",ticketOrderList);
+        if(ticketOrderList == null || ticketOrderList.size()==0){
+            request.setAttribute("hasOrder","false");
+        }else {
+            request.setAttribute("hasOrder","true");
+        }
+        return "ticketorder/orderlist";
+    }
+
+    @RequestMapping("orderdetail")
+    public String oderDetail(javax.servlet.http.HttpServletRequest request, String id){
+        TicketOrder ticketOrder = ticketOrderService.findById(id);
+        request.setAttribute("ticketOrder",ticketOrder);
+        return "ticketorder/orderdetail";
     }
 
 }

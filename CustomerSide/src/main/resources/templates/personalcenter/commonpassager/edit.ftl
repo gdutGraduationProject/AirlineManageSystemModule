@@ -14,12 +14,11 @@
 				<div class="row">
 					<div class="col-md-2 text-center">
 						<div class="list-group">
-							<a href="person.html" class="list-group-item">我的订单</a>
-							<a href="jifen.html" class="list-group-item">我的积分</a>
-							<a href="lvke.html" class="list-group-item active">常用旅客</a>
-							<a href="changepassword.html" class="list-group-item">修改密码</a>
-							<a href="changemibao.html" class="list-group-item">修改密保</a>
-							<a href="changeemail.html" class="list-group-item">修改邮箱</a>
+							<a href="../../personalcenter/myorder" class="list-group-item">我的订单</a>
+							<a href="../../personalcenter/commonpassager/list" class="list-group-item active">常用旅客</a>
+							<a href="../../personalcenter/edit" class="list-group-item">修改密码</a>
+							<a href="../../personalcenter/editquestion" class="list-group-item">修改密保</a>
+							<a href="../../personalcenter/editemail" class="list-group-item">修改邮箱</a>
 						</div>
 					</div>
 					<!--订单列表-->

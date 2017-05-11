@@ -1,5 +1,8 @@
 package cn.service;
 
+import cn.bean.SubOrder;
+import cn.bean.repository.SubOrderRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -7,4 +10,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SubOrderService {
+
+    @Autowired
+    SubOrderRepo subOrderRepo;
+
+
+    public SubOrder save(SubOrder subOrder){
+        return subOrderRepo.save(subOrder);
+    }
+
 }
