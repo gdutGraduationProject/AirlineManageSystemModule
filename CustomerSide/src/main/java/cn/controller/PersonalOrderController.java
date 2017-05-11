@@ -36,4 +36,11 @@ public class PersonalOrderController {
         return "ticketorder/orderlist";
     }
 
+    @RequestMapping("orderdetail")
+    public String oderDetail(HttpServletRequest request, String id){
+        TicketOrder ticketOrder = ticketOrderService.findById(id);
+        request.setAttribute("ticketOrder",ticketOrder);
+        return "ticketorder/orderdetail";
+    }
+
 }

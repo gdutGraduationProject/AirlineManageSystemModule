@@ -33,8 +33,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="col-md-3">订单号：${order.orderNum}</div>
-                            <div class="col-md-3">预定日期：${order.orderTime}</div>
-                            <div class="col-md-1 pull-right"><a href="#" class="btn btn-danger btn-xs">删除订单</a></div>
+                            <div class="col-md-5">预定日期：${order.orderTime}</div>
+                            <div class="col-md-1 pull-right"><a href="#" class="btn btn-danger btn-xs" <#if order.orderStatus==1 >style="display: none" </#if>> 删除订单</a></div>
                         </div>
                         <div class="panel-body">
                             <div class="col-md-2 v">${order.airline.departure.city}-${order.airline.destination.city}</div>
@@ -44,7 +44,10 @@
                             <div class="col-md-2 v"><span class="passenger"> </span></div>
                             <div class="col-md-2 v">${order.flightDay}</div>
                             <div class="col-md-2">
-                                <p>已出票</p>
+                                <p><#if order.orderStatus==1>待付款
+                                <#elseif order.orderStatus==2>已付款
+                                <#elseif order.orderStatus==3>已取消
+                                <#elseif order.orderStatus==4>已失效</#if></p>
                                 <p><a href="../../personalcenter/orderdetail?id=${order.id}">订单详情</a></p>
                             </div>
                         </div>

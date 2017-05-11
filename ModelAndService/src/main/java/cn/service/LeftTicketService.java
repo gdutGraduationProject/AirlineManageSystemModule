@@ -48,6 +48,17 @@ public class LeftTicketService {
     }
 
     /**
+     * 保存
+     */
+    public LeftTicket save(LeftTicket leftTicket){
+        for(LeftTicketClass leftTicketClass : leftTicket.getLeftTicketClassList()){
+            leftTicketClassRepo.save(leftTicketClass);
+        }
+        return leftTicketRepo.save(leftTicket);
+
+    }
+
+    /**
      * 根据id找到对应的LeftTicket
      */
     public LeftTicket findById(String id){

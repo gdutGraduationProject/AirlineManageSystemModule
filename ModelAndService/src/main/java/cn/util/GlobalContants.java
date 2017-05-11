@@ -7,6 +7,8 @@ public class GlobalContants {
 
     public static final String REQUEST_ERROR_REASON = "error_reason";
     public static final String REQUEST_SUCCESS_TEXT = "success_text";
+    public static final String REQUEST_CONFIRM_TEXT = "confirm_text";
+    public static final String REQUEST_CONFIRM_URL = "confirm_url";
     public static final String SESSION_ERROR_REASON = "error_reason";
     public static final String SESSION_LOGIN_CUSTOMER = "customer";
     public static final String SESSION_LOGIN_STAFF = "staff";

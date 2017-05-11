@@ -73,7 +73,7 @@
                     <div class="col-md-2 text-center">起飞时间</div>
                     <div class="col-md-1"></div>
                     <div class="col-md-2 text-center">到达时间</div>
-                    <div class="col-md-3">准点率</div>
+                    <div class="col-md-3">燃油附加费/机场建设费</div>
                     <div class="col-md-1">价格</div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                             <p><span class="arriveTime">${leftTicket.airline.arriveTime?time}</span></p>
                             <p>${leftTicket.airline.destination.airportName}</p>
                         </div>
-                        <div class="col-md-2 vCenter">准点率100%</div>
+                        <div class="col-md-2 vCenter">${leftTicket.airline.fuelTex}元 / ${leftTicket.airline.airportConstruction}元</div>
                         <div class="col-md-2">
                             <span class="PriceBox"><i class="fa fa-money"></i><span
                                     class="tPrice">${leftTicket.minPrice?c}</span>起</span>
@@ -115,11 +115,11 @@
                             <ul class="list-group">
                                 <#list leftTicket.leftTicketClassList as class>
                                     <li class="list-group-item">
-                                        <div class="col-md-2">行程单</div>
+                                        <div class="col-md-2">仅剩${class.leftCount}张</div>
                                         <div class="col-md-offset-5 col-md-1">${class.airlineClass.name}</div>
                                         <div class="col-md-1">¥<span>${class.curPrice?c}</span></div>
                                         <div class="col-md-offset-1 col-md-1">
-                                            <botton class="btn btn-warning" onclick="urlJump('${leftTicket.id}','${class.id}')">选定</botton>
+                                            <botton <#if class.leftCount==0>disabled</#if> class="btn btn-warning" onclick="urlJump('${leftTicket.id}','${class.id}')">选定</botton>
                                         </div>
                                     </li>
                                 </#list>

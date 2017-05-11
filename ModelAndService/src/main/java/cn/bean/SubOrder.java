@@ -30,6 +30,11 @@ public class SubOrder {
      */
     int status;
 
+    /**
+     * 购票时支付的金额
+     */
+    double payFee;
+
 //    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 //    @JoinColumn(name="ticket_order_id")
 //    TicketOrder ticketOrder;
@@ -94,5 +99,13 @@ public class SubOrder {
 
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+
+    public double getPayFee() {
+        return payFee;
+    }
+
+    public void setPayFee(double payFee) {
+        this.payFee = payFee;
     }
 }

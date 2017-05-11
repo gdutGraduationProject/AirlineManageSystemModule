@@ -21,15 +21,23 @@ public class TicketOrderService {
 
     TicketOrderNumberGenerator ticketOrderNumberGenerator = new TicketOrderNumberGenerator();
 
+    @Autowired
+    LeftTicketService leftTicketService;
+
+
+
     public TicketOrder createNewOrder(Customer customer, LeftTicket leftTicket, LeftTicketClass leftTicketClass, TicketOrder mainOrder, List<CommonPassager> commonPassagerList, Airline airline){
         Date buyDateTime = new Date();
         TicketOrder ticketOrder = new TicketOrder();
         List<SubOrder> subOrderList = new ArrayList<SubOrder>();
+        double totalPrice = 0;
         for(CommonPassager commonPassager:commonPassagerList){
             SubOrder subOrder = new SubOrder();
             subOrder.setCommonPassager(commonPassager);
-            subOrder.setStatus(0);
+            subOrder.setStatus(1);
             subOrderList.add(subOrder);
+            subOrder.setPayFee(leftTicketClass.getCurPrice()+leftTicket.getAirline().getFuelTex()+leftTicket.getAirline().getAirportConstruction());
+            totalPrice += leftTicketClass.getCurPrice();
         }
         ticketOrder.setOrderTime(buyDateTime);
         ticketOrder.setOrderNum(ticketOrderNumberGenerator.generate());
@@ -46,7 +54,19 @@ public class TicketOrderService {
         ticketOrder.setCustomer(customer);
         ticketOrder.setSubOrderList(subOrderList);
         ticketOrder.setAirline(airline);
+        ticketOrder.setLeftTicketClass(leftTicketClass);
+        ticketOrder.setPayFee(totalPrice);
         ticketOrder = ticketOrderRepo.save(ticketOrder);
+        leftTicket = leftTicketService.findById(leftTicket.getId());
+        for(LeftTicketClass ticketClass :leftTicket.getLeftTicketClassList()){
+            if(leftTicketClass.getId().equals(ticketClass.getId())){
+                leftTicketClass = ticketClass;
+            }
+        }
+        int saleCount = commonPassagerList.size();
+        leftTicketClass.setLeftCount(leftTicketClass.getLeftCount()-saleCount);
+        leftTicketClass.setSaleCount(leftTicketClass.getSaleCount()+saleCount);
+        leftTicket = leftTicketService.save(leftTicket);
         return ticketOrder;
 
     }

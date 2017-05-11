@@ -25,6 +25,11 @@ public class TicketOrder extends BaseDomain {
     Date orderTime;
 
     /**
+     * 购票时支付的金额
+     */
+    double payFee;
+
+    /**
      * 航班信息
      */
     @OneToOne(optional = true, fetch = FetchType.EAGER)
@@ -78,6 +83,10 @@ public class TicketOrder extends BaseDomain {
     @OneToOne(optional = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "main_order_id", nullable = true)
     TicketOrder mainOrder;
+
+    @OneToOne(optional = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "left_ticket_class_id")
+    LeftTicketClass leftTicketClass;
 
     @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<SubOrder> subOrderList = new ArrayList<SubOrder>();
@@ -176,5 +185,21 @@ public class TicketOrder extends BaseDomain {
 
     public void setAirline(Airline airline) {
         this.airline = airline;
+    }
+
+    public LeftTicketClass getLeftTicketClass() {
+        return leftTicketClass;
+    }
+
+    public void setLeftTicketClass(LeftTicketClass leftTicketClass) {
+        this.leftTicketClass = leftTicketClass;
+    }
+
+    public double getPayFee() {
+        return payFee;
+    }
+
+    public void setPayFee(double payFee) {
+        this.payFee = payFee;
     }
 }

@@ -88,13 +88,21 @@ public class BuyTicketController {
                 commonPassagerList.add(commonPassager);
             }
         }
+        if(leftTicketClass.getLeftCount()<commonPassagerList.size()){
+            request.setAttribute(GlobalContants.REQUEST_ERROR_REASON,"该舱位剩余机票不足，无法购买。该舱剩余机票数："+leftTicketClass.getLeftCount());
+            return "error";
+        }else{
+            TicketOrder ticketOrder = ticketOrderService.createNewOrder(customer,leftTicket,leftTicketClass,null,commonPassagerList,airline);
+            return "redirect:/personalcenter/orderdetail?id="+ticketOrder.getId();
+        }
+    }
 
-        TicketOrder ticketOrder = ticketOrderService.createNewOrder(customer,leftTicket,leftTicketClass,null,commonPassagerList,airline);
+    @RequestMapping("payorder")
+    public String payTicketOrder(HttpServletRequest request, String id){
 
-
-
-        return "success";
-
+        request.setAttribute(GlobalContants.REQUEST_CONFIRM_TEXT,"确认要支付该订单吗？金额：123456");
+        request.setAttribute(GlobalContants.REQUEST_CONFIRM_URL,"confirmTest");
+        return "confirm";
     }
 
 }
