@@ -34,6 +34,10 @@ public class AirlineService {
         return airlineRepo.findByIsDeleteOrderByStatus(false,pageable);
     }
 
+    public List<Airline> findAllAirline(){
+        return airlineRepo.findByIsDelete(false);
+    }
+
     public void deleteAirlineById(String id) {
         Airline airline = airlineRepo.findOne(id);
         airline.setIsDelete(true);

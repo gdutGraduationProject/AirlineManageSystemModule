@@ -114,7 +114,7 @@ public class LeftTicket extends BaseDomain{
         使用方法1：初始化该对象时调用，且只能在调用初始化LeftTicketClass之后调用
         使用方法2：改变当日机票后调用
      */
-    private void updateMinPrice(){
+    public void updateMinPrice(){
         if (this.getLeftTicketClassList()==null || this.getLeftTicketClassList().size()==0 ){
             return;
         }else {
@@ -131,7 +131,7 @@ public class LeftTicket extends BaseDomain{
     /*
      该方法用于设置剩余机票和已售机票
      */
-    private void updateTicketCount(){
+    public void updateTicketCount(){
         if (this.getLeftTicketClassList()==null || this.getLeftTicketClassList().size()==0 ){
             return;
         }else {
@@ -160,6 +160,6 @@ public class LeftTicket extends BaseDomain{
         setUpdateDate(new Date());
         setVersion(getVersion()+1);
         updateMinPrice();
-        updateMinPrice();
+        updateTicketCount();
     }
 }

@@ -15,6 +15,8 @@ import java.util.List;
 @Repository
 public interface AirlineRepo extends CrudRepository<Airline, String> {
 
+    public List<Airline> findByIsDelete(boolean isDelete);
+
     public Page<Airline> findByIsDeleteOrderByStatus(boolean isDelete, Pageable pageable);
 
     public List<Airline> findByIsDeleteAndStatusAndDepartureAndDestinationAndSunday(boolean isDelete, int status, Airport departure, Airport destination,boolean sunday);

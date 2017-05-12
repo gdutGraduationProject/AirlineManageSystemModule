@@ -104,4 +104,8 @@ public class StaffService {
         staffRepo.save(staff);
     }
 
+    public Staff save(Staff staff){
+        return staffRepo.save(staff);
+    }
+
 }
