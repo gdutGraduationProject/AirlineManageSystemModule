@@ -5,6 +5,7 @@ import cn.service.CommonPassagerService;
 import cn.service.LeftTicketService;
 import cn.service.PaymentService;
 import cn.service.TicketOrderService;
+import cn.util.EmailSendTool;
 import cn.util.GlobalContants;
 import cn.util.TicketOrderNumberGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,8 @@ public class TicketOrderController {
 
     @Autowired
     PaymentService paymentService;
+
+    EmailSendTool emailSendTool = new EmailSendTool();
 
     TicketOrderNumberGenerator ticketOrderNumberGenerator = new TicketOrderNumberGenerator();
 
@@ -102,6 +105,7 @@ public class TicketOrderController {
             return "error";
         }else{
             TicketOrder ticketOrder = ticketOrderService.createNewOrder(customer,leftTicket,leftTicketClass,null,commonPassagerList,airline);
+            emailSendTool.sendConfirmOrderTicket(ticketOrder);
             return "redirect:/personalcenter/orderdetail?id="+ticketOrder.getId();
         }
     }
@@ -133,7 +137,7 @@ public class TicketOrderController {
             request.setAttribute(GlobalContants.REQUEST_ERROR_REASON,"未支付的订单不能删除");
             return "error";
         }else if(customer.getId().equals(ticketOrder.getCustomer().getId())){
-            request.setAttribute(GlobalContants.REQUEST_CONFIRM_TEXT,"确认要删除该订单吗？金额："+ticketOrder.getPayFee());
+            request.setAttribute(GlobalContants.REQUEST_CONFIRM_TEXT,"确认要删除该订单吗？");
             request.setAttribute(GlobalContants.REQUEST_CONFIRM_URL,"buyticket/confirmdelete?id="+ticketOrder.getId());
             return "confirm";
         }else{
@@ -151,7 +155,7 @@ public class TicketOrderController {
             request.setAttribute(GlobalContants.REQUEST_ERROR_REASON,"已支付的订单不能删除");
             return "error";
         }else if(customer.getId().equals(ticketOrder.getCustomer().getId())){
-            request.setAttribute(GlobalContants.REQUEST_CONFIRM_TEXT,"确认要取消该订单吗？金额："+ticketOrder.getPayFee());
+            request.setAttribute(GlobalContants.REQUEST_CONFIRM_TEXT,"确认要取消该订单吗？");
             request.setAttribute(GlobalContants.REQUEST_CONFIRM_URL,"buyticket/confirmcancle?id="+ticketOrder.getId());
             return "confirm";
         }else{
@@ -175,6 +179,7 @@ public class TicketOrderController {
         payment.setCustomer(customer);
         payment = paymentService.save(payment);
         ticketOrderService.payTicketOrder(ticketOrder,payment);
+        emailSendTool.sendPayTicket(ticketOrder);
         return "success";
     }
 

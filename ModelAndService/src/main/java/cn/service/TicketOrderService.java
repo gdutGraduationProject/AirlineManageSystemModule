@@ -4,15 +4,16 @@ import cn.bean.*;
 import cn.bean.repository.TicketOrderRepo;
 import cn.util.TicketOrderNumberGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by ChenGeng on 2017/5/9.
  */
+@Component
 @Service
 public class TicketOrderService {
 
@@ -26,6 +27,11 @@ public class TicketOrderService {
 
     @Autowired
     SubOrderService subOrderService;
+
+
+    public List<TicketOrder> unpayedTicketOrder(){
+        return ticketOrderRepo.findByOrderStatusAndIsDelete(1,false);
+    }
 
     public TicketOrder payTicketOrder(TicketOrder ticketOrder, Payment payment){
         ticketOrder.setOrderStatus(2);
@@ -79,13 +85,14 @@ public class TicketOrderService {
         leftTicketClass.setSaleCount(leftTicketClass.getSaleCount()+saleCount);
         ticketOrder.setLeftTicket(leftTicket);
         leftTicket = leftTicketService.save(leftTicket);
+
         return ticketOrder;
 
     }
 
 
     public List<TicketOrder> findOrderByCustomer(Customer customer){
-        return ticketOrderRepo.findByDeleteByCustomerAndCustomerAndIsDeleteOrderByOrderDate(false,customer,false);
+        return ticketOrderRepo.findByDeleteByCustomerAndCustomerAndIsDeleteOrderByOrderTimeDesc(false,customer,false);
     }
 
 
@@ -121,4 +128,28 @@ public class TicketOrderService {
         leftTicketClass.setLeftCount(leftTicketClass.getLeftCount()+ticketCount);
         return leftTicketService.save(leftTicket);
     }
+
+    public LeftTicket disableTicketOrder(TicketOrder ticketOrder) {
+        int ticketCount = 0;
+        ticketOrder = ticketOrderRepo.findOne(ticketOrder.getId());
+        for(SubOrder subOrder:ticketOrder.getSubOrderList()){
+            subOrder.setStatus(4);
+            subOrderService.save(subOrder);
+            ticketCount++;
+        }
+        ticketOrder.setOrderStatus(4);
+        ticketOrderRepo.save(ticketOrder);
+        LeftTicketClass leftTicketClass = ticketOrder.getLeftTicketClass();
+        LeftTicket leftTicket = ticketOrder.getLeftTicket();
+        leftTicket = leftTicketService.findById(leftTicket.getId());
+        for(LeftTicketClass ticketClass : leftTicket.getLeftTicketClassList()){
+            if(ticketClass.getId().equals(leftTicketClass.getId())){
+                leftTicketClass = ticketClass;
+            }
+        }
+        leftTicketClass.setSaleCount(leftTicketClass.getSaleCount()-ticketCount);
+        leftTicketClass.setLeftCount(leftTicketClass.getLeftCount()+ticketCount);
+        return leftTicketService.save(leftTicket);
+    }
+
 }

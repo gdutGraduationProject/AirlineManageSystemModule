@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -122,6 +123,9 @@ public class UpdateInformationController {
     public String oderDetail(javax.servlet.http.HttpServletRequest request, String id){
         TicketOrder ticketOrder = ticketOrderService.findById(id);
         request.setAttribute("ticketOrder",ticketOrder);
+        Date cancleTime = ticketOrder.getOrderTime();
+        cancleTime.setMinutes(cancleTime.getMinutes()+30);
+        request.setAttribute("cancleTime",cancleTime);
         return "ticketorder/orderdetail";
     }
 

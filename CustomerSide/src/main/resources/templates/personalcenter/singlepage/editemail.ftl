@@ -28,7 +28,7 @@
 								<h3 class="panel-title"><i class="fa fa-envelope"></i> 修改邮箱</h3>
 							</div>
 							<div class="panel-body">
-								<form action="/personalcenter/password/updateemail" class="form-horizontal">
+								<form action="../../personalcenter/updateemail" class="form-horizontal">
 									<div class="form-group">
 									    <p class="col-md-4">当前邮箱：<span>${customer.checkedEmail!}</span></p>
 									</div>

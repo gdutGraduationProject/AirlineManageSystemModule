@@ -24,7 +24,7 @@ public class AdminLoginInterceptor implements HandlerInterceptor {
         if(object==null){
             //该用户尚未登录
             request.setAttribute(GlobalContants.SESSION_LOGIN_BACK_URL,request.getRequestURI());
-            response.sendRedirect("/loginPage");
+            response.sendRedirect("/admin/login");
             return false;
         }else{
             //该用户已经登录

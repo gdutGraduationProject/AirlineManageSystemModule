@@ -1,6 +1,7 @@
 package cn.util;
 
 import cn.bean.Customer;
+import cn.bean.TicketOrder;
 import org.junit.Test;
 
 import javax.mail.Session;
@@ -32,7 +33,7 @@ public class EmailSendTool {
      public void sendUpdateEmail(Customer customer){
          String emailTitle = new String("【航空售票系统】航空售票系统修改验证邮箱");
          StringBuffer buffer = new StringBuffer();
-         buffer.append("您好，欢迎来到航空售票管理系统。您正在申请修改登录邮箱的操作，请点击下面的链接以验证帐号:");
+         buffer.append(customer.getRealName()+"您好，欢迎来到航空售票管理系统。您正在申请修改登录邮箱的操作，请点击下面的链接以验证帐号:");
          buffer.append(GlobalContants.SYSTEM_DOMAIN_ADDRESS);
          buffer.append(":");
          buffer.append(GlobalContants.SYSTEM_CUSTOMER_PORTID);
@@ -51,7 +52,7 @@ public class EmailSendTool {
      public void sendConfirmEmail(Customer customer) {
         String emailTitle = new String("【航空售票系统】航空售票系统账号激活");
         StringBuffer buffer = new StringBuffer();
-        buffer.append("您好，欢迎来到航空售票管理系统。您正在使用该邮箱进行注册操作，请点击下面的链接以激活帐号:");
+        buffer.append(customer.getRealName()+"您好，欢迎来到航空售票管理系统。您正在使用该邮箱进行注册操作，请点击下面的链接以激活帐号:");
         buffer.append(GlobalContants.SYSTEM_DOMAIN_ADDRESS);
         buffer.append(":");
         buffer.append(GlobalContants.SYSTEM_CUSTOMER_PORTID);
@@ -62,6 +63,50 @@ public class EmailSendTool {
         String emailContent = buffer.toString();
         sendEmail(customer.getNewEmail(),customer.getRealName(),emailTitle,emailContent);
      }
+
+    /**
+     * 发送下单成功邮件
+     * @param ticketOrder
+     */
+    public void sendConfirmOrderTicket(TicketOrder ticketOrder) {
+        Customer customer = ticketOrder.getCustomer();
+        if(customer.getCheckedEmail()==null || customer.getCheckedEmail().equals("")){
+            return;
+        }
+        String emailTitle = new String("【航空售票系统】"+ticketOrder.getAirline().getDeparture().getCity()+"→"+ticketOrder.getAirline().getDestination().getCity()+"航空售票系统购票成功");
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(customer.getRealName()+"您好，欢迎来到航空售票管理系统。您已成功购买"+ticketOrder.getFlightDay()+"从"+ticketOrder.getAirline().getDeparture().getCity()+"到"+ticketOrder.getAirline().getDestination().getCity()+"的机票，");
+        buffer.append("请您在三十分钟内付款，否则您的订单将被取消，谢谢。点击下方链接可查看订单详情并进行支付：");
+        buffer.append(GlobalContants.SYSTEM_DOMAIN_ADDRESS);
+        buffer.append(":");
+        buffer.append(GlobalContants.SYSTEM_CUSTOMER_PORTID);
+        buffer.append("/personalcenter/orderdetail?id=");
+        buffer.append(ticketOrder.getId());
+        String emailContent = buffer.toString();
+        sendEmail(customer.getCheckedEmail(),customer.getRealName(),emailTitle,emailContent);
+    }
+
+    /**
+     * 发送下单成功邮件
+     * @param ticketOrder
+     */
+    public void sendPayTicket(TicketOrder ticketOrder) {
+        Customer customer = ticketOrder.getCustomer();
+        if(customer.getCheckedEmail()==null || customer.getCheckedEmail().equals("")){
+            return;
+        }
+        String emailTitle = new String("【航空售票系统】"+ticketOrder.getAirline().getDeparture().getCity()+"→"+ticketOrder.getAirline().getDestination().getCity()+"航空售票系统支付成功");
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(customer.getRealName()+"您好，欢迎来到航空售票管理系统。您已成功购买"+ticketOrder.getFlightDay()+"从"+ticketOrder.getAirline().getDeparture().getCity()+"到"+ticketOrder.getAirline().getDestination().getCity()+"的机票，");
+        buffer.append("并支付成功，感谢您使用航空售票管理系统，谢谢。点击下方链接可查看订单详情：");
+        buffer.append(GlobalContants.SYSTEM_DOMAIN_ADDRESS);
+        buffer.append(":");
+        buffer.append(GlobalContants.SYSTEM_CUSTOMER_PORTID);
+        buffer.append("/personalcenter/orderdetail?id=");
+        buffer.append(ticketOrder.getId());
+        String emailContent = buffer.toString();
+        sendEmail(customer.getCheckedEmail(),customer.getRealName(),emailTitle,emailContent);
+    }
 
     private boolean sendEmail(String receiveMailAccount,String receiveName, String emailTitle, String emailContent)  {
         // 1. 创建参数配置, 用于连接邮件服务器的参数配置
@@ -120,7 +165,7 @@ public class EmailSendTool {
             e.printStackTrace();
             isFlag = false;
         }
-        return isFlag;
+        return true;
 
     }
 

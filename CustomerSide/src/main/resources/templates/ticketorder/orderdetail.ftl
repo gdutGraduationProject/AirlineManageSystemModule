@@ -15,12 +15,11 @@
 				<div class="row">
 					<div class="col-md-2 text-center">
 						<div class="list-group">
-							<a href="#" class="list-group-item active disabled">我的订单</a>
-							<a href="jifen.html" class="list-group-item">我的积分</a>
-							<a href="lvke.html" class="list-group-item">常用旅客</a>
-							<a href="#" class="list-group-item">修改密码</a>
-							<a href="#" class="list-group-item">修改密保</a>
-							<a href="#" class="list-group-item">修改邮箱</a>
+                            <a href="../../personalcenter/myorder" class="list-group-item active">我的订单</a>
+                            <a href="../../personalcenter/commonpassager/list" class="list-group-item">常用旅客</a>
+                            <a href="../../personalcenter/edit" class="list-group-item">修改密码</a>
+                            <a href="../../personalcenter/editquestion" class="list-group-item">修改密保</a>
+                            <a href="../../personalcenter/editemail" class="list-group-item">修改邮箱</a>
 						</div>
 					</div>					
 					<div class="col-md-10">
@@ -31,7 +30,7 @@
 							</div>
 							<div class="panel-body">
 								<p>订单状态：<span class="fw">
-								<#if ticketOrder.orderStatus==1>待付款
+								<#if ticketOrder.orderStatus==1>待付款<font color="red"> 请在${cancleTime}前支付，否则订单将被取消</font>
 								<#elseif ticketOrder.orderStatus==2>已付款
 								<#elseif ticketOrder.orderStatus==3>已取消
 								<#elseif ticketOrder.orderStatus==4>已失效</#if>
