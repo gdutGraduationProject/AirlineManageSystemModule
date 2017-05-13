@@ -69,12 +69,12 @@
 								    		<p class="airModel">${ticketOrder.airline.plane.company}${ticketOrder.airline.plane.modelName}</p>
 								    	</div>
 							    		<div class="col-md-2 text-center">
-							    			<p><span class="goTime">${ticketOrder.airline.startTime?time}</span></p>
+							    			<p><span class="goTime">${ticketOrder.airline.startTime?string('hh:MM')}</span></p>
 							    			<p>${ticketOrder.airline.departure.airportName}</p>
 							    		</div>
 							    		<div class="col-md-1 text-center"><i class="fa fa-long-arrow-right"></i></div>
 							    		<div class="col-md-2 text-center">
-							    			<p><span class="arriveTime">${ticketOrder.airline.arriveTime?time}</span></p>
+							    			<p><span class="arriveTime">${ticketOrder.airline.arriveTime?string('hh:MM')}</span></p>
 							    			<p>${ticketOrder.airline.destination.airportName}</p>
 							    		</div>
 									</div>									

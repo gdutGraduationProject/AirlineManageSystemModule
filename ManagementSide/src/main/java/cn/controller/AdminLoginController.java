@@ -79,9 +79,9 @@ public class AdminLoginController {
                 session.setAttribute(GlobalContants.SESSION_LOGIN_USER_TYPE, GlobalContants.UserType.STAFF);
                 session.setAttribute(GlobalContants.SESSION_LOGIN_STAFF,staff);
                 String nextUrl = (String)session.getAttribute(GlobalContants.SESSION_LOGIN_BACK_URL);
-                if(nextUrl==null || nextUrl.equals("")){
+//                if(nextUrl==null || nextUrl.equals("")){
                     nextUrl = new String("redirect:/admin/index");
-                }
+//                }
                 return nextUrl;
             }
         }

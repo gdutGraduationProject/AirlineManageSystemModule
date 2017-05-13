@@ -116,12 +116,12 @@
 						<dd>${leftTicketClass.airlineClass.name}</dd>
 					</dl>
 					<div class="col-md-4">
-						<p class="time">${leftTicket.airline.startTime?time}</p>
+						<p class="time">${leftTicket.airline.startTime?string('hh:MM')}</p>
 						<p>${leftTicket.airline.departure.airportName}</p>
 					</div>
 					<div class="col-md-4"><i class="fa fa-long-arrow-right"></i></div>
 					<div class="col-md-4">
-						<p class="time">${leftTicket.airline.arriveTime?time}</p>
+						<p class="time">${leftTicket.airline.arriveTime?string('hh:MM')}</p>
 						<p>${leftTicket.airline.destination.airportName}</p>
 					</div>
 					<br /><br /><br /><br />

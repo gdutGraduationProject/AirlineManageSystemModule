@@ -4,6 +4,8 @@ import cn.bean.*;
 import cn.bean.repository.TicketOrderRepo;
 import cn.util.TicketOrderNumberGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -152,4 +154,7 @@ public class TicketOrderService {
         return leftTicketService.save(leftTicket);
     }
 
+    public Page<TicketOrder> findAllTicketOrder(Pageable pageable) {
+        return ticketOrderRepo.findByIsDeleteOrderByOrderTimeDesc(false,pageable);
+    }
 }

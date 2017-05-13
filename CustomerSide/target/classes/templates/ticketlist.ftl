@@ -90,12 +90,12 @@
                                 -${leftTicket.airline.plane.modelName}</p>
                         </div>
                         <div class="col-md-2 text-center">
-                            <p><span class="goTime">${leftTicket.airline.startTime?time}</span></p>
+                            <p><span class="goTime">${leftTicket.airline.startTime?string('hh:MM')}</span></p>
                             <p>${leftTicket.airline.departure.airportName}</p>
                         </div>
                         <div class="col-md-1 text-center"><i class="fa fa-long-arrow-right"></i></div>
                         <div class="col-md-2 text-center">
-                            <p><span class="arriveTime">${leftTicket.airline.arriveTime?time}</span></p>
+                            <p><span class="arriveTime">${leftTicket.airline.arriveTime?string('hh:MM')}</span></p>
                             <p>${leftTicket.airline.destination.airportName}</p>
                         </div>
                         <div class="col-md-2 vCenter">${leftTicket.airline.fuelTex}元 / ${leftTicket.airline.airportConstruction}元</div>
