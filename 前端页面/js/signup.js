@@ -43,7 +43,7 @@ $(function(){
 		}else if(rgphone==null||rgphone==""){
 			window.wxc.xcConfirm("手机号码不能为空","error");
 			return false;
-		}else if(checkPhone(rgphone)){
+		}else if(checkPhone(rgphone)==false){
 			window.wxc.xcConfirm("手机号格式不正确，请输入正确的手机号","error");
 			return false;
 		}else if(rgemail==null||rgemail==""){
@@ -55,7 +55,7 @@ $(function(){
 		}else if(answer==null||answer==""){
 			window.wxc.xcConfirm("密保答案不能为空","error");
 			return false;
-		}else if(checkAnswer(answer)){
+		}else if(checkAnswer(answer)==false){
 			window.wxc.xcConfirm("密保答案格式错误，只能由3汉字组成","error");
 			return false;
 		}else if(rgpassword==null||rgpassword==""){
@@ -89,7 +89,7 @@ $(function(){
         }
     //检验手机号
     	function checkPhone(str){
-    		var reg = /^1[34578]\d{9}$/;
+    		var reg = /^1\d{10}$/;
     		return reg.test(str);
     	}
     //检验邮箱地址
