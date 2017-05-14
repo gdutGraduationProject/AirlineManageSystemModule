@@ -9,7 +9,7 @@
 		 <!--头部开始-->
 		 <#include "/include/pagehead.ftl"/>
 		<!--我的积分主体-->
-		<section id="person" style="padding-top: 50px;">
+		<section id="person" style="margin-top: 50px;margin-bottom: 260px">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-2 text-center">

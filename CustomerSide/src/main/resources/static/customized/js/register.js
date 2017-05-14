@@ -26,7 +26,7 @@ function checkForm(){
         window.wxc.xcConfirm("用户名不能为空","error");
         return false;
     }else if(checkName(rgname)==false){
-        window.wxc.xcConfirm("用户名格式不正确，只能由1到8位小写字母和数字组成","error");
+        window.wxc.xcConfirm("用户名格式不正确，只能以字母开头，6到12位字母和数字组成","error");
         return false;
     }else if(realuser==null||realuser==""){
         window.wxc.xcConfirm("真实姓名不能为空","error");
@@ -74,7 +74,7 @@ function checkForm(){
 }
 //判断用户名
 function checkName(str){
-    var reg =/^[a-z0-9]{1,8}$/;//只能由26个字母和数字组成
+    var reg =/^[a-zA-Z][a-zA-Z0-9_]{5,11}$/;//只能由26个字母和数字组成
     return reg.test(str);
 }
 //判断真实姓名
