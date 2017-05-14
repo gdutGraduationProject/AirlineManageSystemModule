@@ -16,7 +16,7 @@
 			</div>
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<form action="/registe" class="form-horizontal" method="post">
+					<form action="/registe" class="form-horizontal" method="post" onsubmit="return checkForm()" >
 						<div class="form-group">
 							<label for="rgname" class="col-md-2 control-label">用户名</label>
 						    <div class="col-md-5">
