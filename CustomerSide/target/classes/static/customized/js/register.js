@@ -106,4 +106,4 @@ function checkAnswer(str){
 function checkPassword(str){
     var reg = /^[a-z0-9]+$/;	//只能输入由数字和26个英文小写字母组成的字符串
     return reg.test(str);
-}	
+}

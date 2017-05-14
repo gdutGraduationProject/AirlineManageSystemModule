@@ -14,11 +14,8 @@
             </div>
             <div id="nav_list" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">机票搜索</a></li>
-                    <li><a href="../../index">航班信息</a></li>
-                    <li><a href="question.html">常见问题</a></li>
-                    <li><a href="travel.html">旅游资讯</a></li>
-                    <li><a href="about.html">关于MSA</a></li>
+                    <li class="active"><a href="../../index">机票搜索</a></li>
+                    <li><a href="../../about">关于AMS</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right hidden-sm">
                     <#if isLogin == false>
