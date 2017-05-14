@@ -10,7 +10,7 @@
 <!--头部开始-->
 <#include "/include/pagehead.ftl"/>
 <!--个人中心主体-->
-<section id="person" style="margin-top: 50px;margin-bottom: 150px;">
+<section id="person" style="margin-top: 50px;margin-bottom: 270px;">
     <div class="container">
         <div class="row">
             <div class="col-md-2 text-center">
