@@ -38,7 +38,7 @@
                         <!-- form start -->
                         <form class="form-horizontal" id="editForm" action="${ctx}/staff/update" method="post" onsubmit="return submitCheck()">
                             <input type="hidden" id="isNew" name="isNew" value="${isNew?string('true', 'false')}"/>
-                            <input type="hidden" id="staffId" name="id" value="${staff.id!}"/>
+                            <input type="hidden" id="staffId" name="id" value="${editStaff.id!}"/>
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 control-label"><span class="text-red">*</span>用户名</label>

@@ -28,7 +28,7 @@
 								<h3 class="panel-title"><i class="fa fa-quora"></i>修改密保</h3>
 							</div>
 							<div class="panel-body">
-								<form action="/updatequestion" class="form-horizontal" method="post">
+								<form action="/updatequestion" class="form-horizontal" method="post" onsubmit="return checkForm()">
 									 <div class="form-group">
 									    <label  class="col-md-2 control-label">密保问题</label>
 									    <div class="col-md-5">
@@ -55,5 +55,6 @@
 		</section>
 		<!--脚注区域-->
 		 <#include "/include/pagefoot.ftl"/>
+         <script src="${ctx}/customized/js/editpasswordquestion.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

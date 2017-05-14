@@ -97,7 +97,9 @@ public class StaffController {
 
         if(isNewBoolean){
             //提交修改的职员是新的职员
+            staff.setIsDelete(false);
             saveStaff = staff;
+
         }else{
             //提交修改的职员是旧的职员进行编辑
             saveStaff = staffService.findById(staff.getId());

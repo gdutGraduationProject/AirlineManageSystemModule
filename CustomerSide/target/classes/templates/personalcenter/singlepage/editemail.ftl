@@ -58,4 +58,5 @@
 		<!--脚注区域-->
 		 <#include "/include/pagefoot.ftl"/>
 	</body>
+    <script src="${ctx}/customized/js/editemail.js" type="text/javascript" charset="utf-8"></script>
 </html>
