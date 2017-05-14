@@ -101,7 +101,7 @@
                                     </div>
 
                                     <label for="inputEmail3" class="col-sm-2 control-label"><span class="text-red">*</span>新价 </label>
-                                    <div class="col-sm-1">
+                                    <div class="col-sm-2">
                                         <input type="number" class="form-control" id="" name="newPrice${leftTicketClass_index}"
                                                value=""  >
                                     </div>
