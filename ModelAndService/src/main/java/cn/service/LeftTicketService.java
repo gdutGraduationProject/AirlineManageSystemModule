@@ -130,7 +130,7 @@ public class LeftTicketService {
             leftTicketClass.setSaleCount(0);
             leftTicketClass.setFullPrice(airlineClass.getFullPrice());
             leftTicketClass.setDiscount(airlineClass.getDefaultDiscount());
-            leftTicketClass.setCurPrice(Math.rint(leftTicketClass.getFullPrice()/leftTicketClass.getDiscount()*100));
+            leftTicketClass.setCurPrice(Math.rint(leftTicketClass.getFullPrice()*leftTicketClass.getDiscount()/100));
             leftTicketClass = leftTicketClassRepo.save(leftTicketClass);
             leftTicketClassList.add(leftTicketClass);
         }
