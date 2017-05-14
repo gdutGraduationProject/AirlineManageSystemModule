@@ -35,7 +35,7 @@
 					<div style="line-height:2;text-indent: 2em;" class="well">
 						<p>地址：广东省广州市番禺区大学城外环西路100号</p>
 						<p>邮编：510000</p>
-						<p>邮箱地址：weiyeweb@126.com</p>
+						<p>邮箱地址：${myemail}</p>
 					</div>
 					
 					

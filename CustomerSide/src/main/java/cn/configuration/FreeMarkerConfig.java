@@ -27,6 +27,12 @@ public class FreeMarkerConfig  implements InitializingBean,ServletContextAware {
     @Value("${context.ctx}")
     private String dynaContentPath;
 
+    @Value("${context.myname}")
+    private String myName;
+
+    @Value("${context.myemail}")
+    private String myEmail;
+
     @Autowired
     ResourceUrlProvider resourceUrlProvider;
     @Bean
@@ -40,8 +46,12 @@ public class FreeMarkerConfig  implements InitializingBean,ServletContextAware {
         freemarker.template.Configuration configuration = freeMarkerConfigurer.getConfiguration();
         String projectContextPath = servletContext.getContextPath();
         configuration.setSharedVariable("ctx",dynaContentPath);
+        configuration.setSharedVariable("myname",myName);
+        configuration.setSharedVariable("myemail",myEmail);
         if(StringUtils.isEmpty(dynaContentPath)){
             configuration.setSharedVariable("ctx",projectContextPath);
+            configuration.setSharedVariable("myname",myName);
+            configuration.setSharedVariable("myemail",myEmail);
         }
         freeMarkerConfigurer.getConfiguration().setSharedVariable("_v",encodeURLMethod());
     }
