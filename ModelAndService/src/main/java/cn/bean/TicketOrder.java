@@ -48,7 +48,7 @@ public class TicketOrder extends BaseDomain {
 
     /**
      * 订单状态
-     * 1：未付款    2：已付款   3：已取消   4.已失效
+     * 1：未付款    2：已付款   3：已取消   4.已失效   5.部分退票  6.全部退票
      * 备注：下单成功后需在10分钟内付款，否则订单自动失效，无法继续支付，座位退回
      */
     int orderStatus;
@@ -229,4 +229,23 @@ public class TicketOrder extends BaseDomain {
     public void setLeftTicket(LeftTicket leftTicket) {
         this.leftTicket = leftTicket;
     }
+
+    public void updateOrderStatus(){
+        int refundCount = 0;
+        int leftCount = 0;
+        for(SubOrder subOrder:subOrderList){
+            if(subOrder.getStatus()==2){
+                leftCount++;
+            }
+            if(subOrder.getStatus()==5){
+                refundCount++;
+            }
+        }
+        if(leftCount!=0 && refundCount!=0){
+            orderStatus = 5;
+        }else if(leftCount==0 && refundCount!=0){
+            orderStatus = 6;
+        }
+    }
+
 }

@@ -33,7 +33,9 @@
 								<#if ticketOrder.orderStatus==1>待付款<font color="red"> 请在${cancleTime}前支付，否则订单将被取消</font>
 								<#elseif ticketOrder.orderStatus==2>已付款
 								<#elseif ticketOrder.orderStatus==3>已取消
-								<#elseif ticketOrder.orderStatus==4>已失效</#if>
+								<#elseif ticketOrder.orderStatus==4>已失效
+								<#elseif ticketOrder.orderStatus==5>部分退票
+								<#elseif ticketOrder.orderStatus==6>全部退票</#if>
 								</span></p>
 								<p>订单号：<span class="fw">${ticketOrder.orderNum}</span></p>
 								<p>预定日期：${ticketOrder.orderTime}</p>
@@ -109,9 +111,11 @@
 							</div>
 						</div>	
 						<!--乘机人-->
+					<form action="../../buyticket/refundticket"  id="refundForm" >
+						<input type="hidden" name="ticketOrderId" value="${ticketOrder.id}">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">乘机人</h3>
+								<h3 class="panel-title">乘机人<#if ticketOrder.orderStatus==2 || ticketOrder.orderStatus==5 ><button type="button" onclick="confirmDelete()" class="btn btn-danger btn-xs pull-right">退票</button></#if></h3>
 							</div>
 							<div class="panel-body">
 
@@ -125,7 +129,7 @@
                                         <p>状态：</p>
                                     </div>
                                     <div class="col-md-4">
-                                        <p><span class="fw">${subOrder.commonPassager.name}</span></p>
+                                        <p><span class="fw">${subOrder.commonPassager.name}</span><input type="checkbox" <#if (subOrder.status != 2)  >disabled="disabled"</#if> name="subOrderId" value="${subOrder.id}" class="pull-right"></p>
                                         <p><span class="fw">${subOrder.commonPassager.idType} ${subOrder.commonPassager.idNumber}</span></p>
                                         <p>${ticketOrder.orderTime?date}</p>
                                         <p>${subOrder.commonPassager.phoneNumber}</p>
@@ -173,6 +177,9 @@
 								<#--</div>-->
 							</div>
 						</div>
+                    </form>
+
+
 					</div>
 				</div>
 			</div>
@@ -184,5 +191,21 @@
 	function jumpUrl(url) {
         window.location.href=url;
     }
+
+    function confirmDelete(){
+	    var isFlag = false;
+        var tipTxt = "确认要退票吗？温馨提示:退票时机场建设费及燃油税不予退回";
+        var option = {
+            title: "提示",
+            btn: parseInt("0011", 2),
+            onOk: function () {
+                $("#refundForm").submit();
+                isFlag = true;
+            }
+        }
+        window.wxc.xcConfirm(tipTxt, "confirm", option);
+        return isFlag;
+    }
+
 </script>
 </html>

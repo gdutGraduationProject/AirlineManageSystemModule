@@ -199,4 +199,29 @@ public class TicketOrderController {
         return "success";
     }
 
+    @RequestMapping("refundticket")
+    public String refundTicket(HttpServletRequest request, String ticketOrderId, String[] subOrderId){
+        HttpSession session = request.getSession();
+        Customer customer = (Customer) session.getAttribute(GlobalContants.SESSION_LOGIN_CUSTOMER);
+        TicketOrder ticketOrder = ticketOrderService.findById(ticketOrderId);
+        if(!customer.getId().equals(ticketOrder.getCustomer().getId())){
+            request.setAttribute(GlobalContants.REQUEST_ERROR_REASON,"该订单不是您的订单");
+            return "error";
+        }else {
+
+        List<SubOrder> subOrderList = new ArrayList<SubOrder>();
+        for(String newString:subOrderId){
+            SubOrder subOrder = new SubOrder();
+            for(SubOrder order : ticketOrder.getSubOrderList()){
+                if(order.getId().equals(newString)){
+                    subOrder = order;
+                }
+            }
+            subOrderList.add(subOrder);
+        }
+        ticketOrder = ticketOrderService.refundTicketOrder(ticketOrder,subOrderList);
+        return "redirect:/personalcenter/orderdetail?id="+ticketOrder.getId();
+        }
+    }
+
 }

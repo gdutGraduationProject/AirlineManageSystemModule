@@ -2,6 +2,7 @@ package cn.service;
 
 import cn.bean.*;
 import cn.bean.repository.TicketOrderRepo;
+import cn.util.DateTransformTool;
 import cn.util.TicketOrderNumberGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,12 +25,16 @@ public class TicketOrderService {
 
     TicketOrderNumberGenerator ticketOrderNumberGenerator = new TicketOrderNumberGenerator();
 
+    DateTransformTool dateTransformTool = new DateTransformTool();
+
     @Autowired
     LeftTicketService leftTicketService;
 
     @Autowired
     SubOrderService subOrderService;
 
+    @Autowired
+    PaymentService paymentService;
 
     public List<TicketOrder> unpayedTicketOrder(){
         return ticketOrderRepo.findByOrderStatusAndIsDelete(1,false);
@@ -152,6 +157,49 @@ public class TicketOrderService {
         leftTicketClass.setSaleCount(leftTicketClass.getSaleCount()-ticketCount);
         leftTicketClass.setLeftCount(leftTicketClass.getLeftCount()+ticketCount);
         return leftTicketService.save(leftTicket);
+    }
+
+    public TicketOrder refundTicketOrder(TicketOrder ticketOrder, List<SubOrder> subOrderList){
+        Date systemDate = new Date();
+        Date spiltDate = dateTransformTool.datePickerStringToDate(ticketOrder.getFlightDay());
+        int hour = ticketOrder.getAirline().getStartTime().getHours()-ticketOrder.getLeftTicketClass().getAirlineClass().getSplitTime();
+        if(hour<0){
+            hour+=24;
+            spiltDate.setDate(spiltDate.getDate()-1);
+        }
+        spiltDate.setHours(hour);
+        spiltDate.setMinutes(ticketOrder.getAirline().getStartTime().getMinutes());
+        double refundFee ;
+        if(systemDate.before(spiltDate)){
+            refundFee = ticketOrder.getLeftTicketClass().getAirlineClass().getBeforeRefundFee();
+        }else{
+            refundFee = ticketOrder.getLeftTicketClass().getAirlineClass().getAfterRefundFee();
+        }
+        double returnFee = 0;
+        List<String> subOrderIdString = new ArrayList<String>();
+        for(SubOrder subOrder:subOrderList){
+            subOrder.setStatus(5);
+            subOrderIdString.add(subOrder.getId());
+            if(subOrder.getPayFee()>refundFee){
+                returnFee = returnFee+subOrder.getPayFee()-refundFee;
+            }
+        }
+        Payment payment = new Payment();
+        payment.setCustomer(ticketOrder.getCustomer());
+        payment.setPaymentMoney(returnFee);
+        payment.setPaymentType(2);
+        payment.setPaymentTime(new Date());
+        payment.setPaymentNum(ticketOrderNumberGenerator.generate());
+        payment = paymentService.save(payment);
+        for(SubOrder subOrder:ticketOrder.getSubOrderList()){
+            if(subOrderIdString.contains(subOrder.getId())){
+                subOrder.setStatus(5);
+                subOrder.setPayment(payment);
+                subOrderService.save(subOrder);
+            }
+        }
+        ticketOrder.updateOrderStatus();
+        return ticketOrder = ticketOrderRepo.save(ticketOrder);
     }
 
     public Page<TicketOrder> findAllTicketOrder(Pageable pageable) {
