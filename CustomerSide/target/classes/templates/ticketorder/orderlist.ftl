@@ -10,7 +10,7 @@
 <!--头部开始-->
 <#include "/include/pagehead.ftl"/>
 <!--个人中心主体-->
-<section id="person" style="margin-top: 50px;margin-bottom: 270px;">
+<section id="person" style="margin-top: 50px;margin-bottom: 150px;">
     <div class="container">
         <div class="row">
             <div class="col-md-2 text-center">
@@ -46,7 +46,9 @@
                                 <p><#if order.orderStatus==1>待付款
                                 <#elseif order.orderStatus==2>已付款
                                 <#elseif order.orderStatus==3>已取消
-                                <#elseif order.orderStatus==4>已失效</#if></p>
+                                <#elseif order.orderStatus==4>已失效
+                                <#elseif order.orderStatus==5>部分退票
+                                <#elseif order.orderStatus==6>全部退票</#if></p>
                                 <p><a href="../../personalcenter/orderdetail?id=${order.id}">订单详情</a></p>
                             </div>
                         </div>
