@@ -147,6 +147,10 @@
                     $('td', row).eq(2).html('已取消');
                 }else if(data['orderStatus'] == 4){
                     $('td', row).eq(2).html('已失效');
+                }else if(data['orderStatus'] == 5){
+                    $('td', row).eq(2).html('部分退票');
+                }else if(data['orderStatus'] == 6){
+                    $('td', row).eq(2).html('全部退票');
                 }
 
                 var customerName = data['customer']['realName'];

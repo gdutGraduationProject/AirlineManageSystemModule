@@ -51,7 +51,9 @@
                                         <#if ticketOrder.orderStatus==1>待付款
                                         <#elseif ticketOrder.orderStatus==2>已付款
                                         <#elseif ticketOrder.orderStatus==3>已取消
-                                        <#elseif ticketOrder.orderStatus==4>已失效</#if>
+                                        <#elseif ticketOrder.orderStatus==4>已失效
+                                        <#elseif ticketOrder.orderStatus==5>部分退票
+                                        <#elseif ticketOrder.orderStatus==6>全部退票</#if>
                                         </label>
                                     </div>
 

@@ -28,6 +28,9 @@ function checkForm(){
     }else if(checkName(rgname)==false){
         window.wxc.xcConfirm("用户名格式不正确，只能以字母开头，6到12位字母和数字组成","error");
         return false;
+    }else if(checkUsername(rgname)=="false"){
+        window.wxc.xcConfirm("用户名已存在","error");
+        return false;
     }else if(realuser==null||realuser==""){
         window.wxc.xcConfirm("真实姓名不能为空","error");
         return false;
@@ -87,6 +90,25 @@ function checkIdcard(str){
     var reg = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
     return reg.test(str);
 }
+//检验用户名是否重复
+function checkUsername(str) {
+    var isFlag;
+    $.ajax({
+        "type" : 'post',
+        "url" : "../../sameusername",
+        async: false,
+        //"dataType" : "json",
+        ///"dataSrc": "data",
+        "data" :{
+            "username":str
+        },
+        "success" : function(resp) {
+            isFlag = resp;
+        }
+    });
+    return isFlag;
+}
+
 //检验手机号
 function checkPhone(str){
     var reg = /^1\d{10}$/;

@@ -80,7 +80,7 @@
 							<label class="col-md-2 control-label">AMS服务条款</label>
 							<div class=" col-md-5">
 								<textarea disabled="disabled" class="form-control" rows="8"> AMS注册声明：								
-1.“AMS系统”是由highnessE负责管理及运营。
+1.“AMS系统”是由${myname}负责管理及运营。
 2.法人或其他非法人组织没有资格参加本奖励计划。本奖励计划除家庭积分计划规定外，亦不受理以共同累积积分或相关情况为目的的数人联合申请或同一人重复申请。 								
 3.旅客填写的个人信息须详细、准确；若个人信息提供不完整或不真实，AMS将无法办理此类注册申请。 
 4.加入成为会员，即表示同意并遵守AMS的相关规定和要求，以及今后可能发生的变动和补充。 

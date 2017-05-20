@@ -135,7 +135,7 @@ public class StaffController {
         }else{
             staff.setIsDisable(true);
         }
-        staffService.saveStaff(staff,null);
+        staffService.save(staff);
         model.put(GlobalContants.ResponseStatus.SUCCESS,GlobalContants.ResponseStatus.SUCCESS);
         model.put(GlobalContants.RESPONSE_MESSAGE,"修改成功");
         return model;
