@@ -28,7 +28,7 @@
 								<h3 class="panel-title"><i class="fa fa-quora"></i>修改密保</h3>
 							</div>
 							<div class="panel-body">
-								<form action="/updatequestion" class="form-horizontal" method="post" onsubmit="return checkForm()">
+								<form action="../../personalcenter/updatequestion" class="form-horizontal" method="post" onsubmit="return checkForm()">
 									 <div class="form-group">
 									    <label  class="col-md-2 control-label">密保问题</label>
 									    <div class="col-md-5">
@@ -39,7 +39,7 @@
 									<div class="form-group">
 									    <label  class="col-md-2 control-label">密保答案</label>
 									    <div class="col-md-5">
-									      <input type="text" class="form-control" name="answer" value="${customer.passwordAnswer}" >
+									      <input type="text" id="answer" class="form-control" name="answer" value="${customer.passwordAnswer}" >
 									    </div>
 									</div>
 									 <div class="col-md-offset-2">

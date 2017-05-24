@@ -13,6 +13,7 @@ function checkForm(){
 }
 //检验密保，限制为3个汉字
 function checkAnswer(str){
-	var reg=/[\u4e00-\u9fa5]{3}/;
-	return reg.test(str);
+	// var reg=/[\u4e00-\u9fa5]{3}/;
+	// return reg.test(str);
+	return true;
 }

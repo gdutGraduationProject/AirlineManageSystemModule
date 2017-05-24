@@ -198,7 +198,17 @@ public class TicketOrderService {
                 subOrderService.save(subOrder);
             }
         }
-        ticketOrder.updateOrderStatus();
+        ticketOrder.updateOrderStatus();LeftTicketClass leftTicketClass = ticketOrder.getLeftTicketClass();
+        LeftTicket leftTicket = ticketOrder.getLeftTicket();
+        leftTicket = leftTicketService.findById(leftTicket.getId());
+        for(LeftTicketClass ticketClass : leftTicket.getLeftTicketClassList()){
+            if(ticketClass.getId().equals(leftTicketClass.getId())){
+                leftTicketClass = ticketClass;
+            }
+        }
+        leftTicketClass.setSaleCount(leftTicketClass.getSaleCount()-subOrderList.size());
+        leftTicketClass.setLeftCount(leftTicketClass.getLeftCount()+subOrderList.size());
+        leftTicketService.save(leftTicket);
         return ticketOrder = ticketOrderRepo.save(ticketOrder);
     }
 

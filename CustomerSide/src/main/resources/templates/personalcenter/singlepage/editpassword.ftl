@@ -28,7 +28,7 @@
 								<h3 class="panel-title"><i class="fa fa-key"></i>修改密码</h3>
 							</div>
 							<div class="panel-body">
-								<form action="/update" class="form-horizontal" onsubmit="return checkForm()">
+								<form action="../../personalcenter/update" class="form-horizontal" onsubmit="return checkForm()">
 									 <div class="form-group">
 									    <label for="oldpsw" class="col-md-2 control-label">当前密码</label>
 									    <div class="col-md-3">
@@ -44,7 +44,7 @@
 									<div class="form-group">
 									    <label for="cfpsw" class="col-md-2 control-label">确认密码</label>
 									    <div class="col-md-3">
-									      <input type="password" class="form-control" id="cfdpsw" >
+									      <input type="password" class="form-control" id="cfpsw" >
 									    </div>
 									 </div>
 									 <div class="form-group">

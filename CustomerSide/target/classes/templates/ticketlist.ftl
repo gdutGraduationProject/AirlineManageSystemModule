@@ -85,17 +85,17 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" id="heading${leftTicket_index}">
                         <div class="col-md-2">
-                            <p class="airName">广工航空</p>
+                            <p class="airName">广工航空${leftTicket.airline.airlineNum}</p>
                             <p class="airModel"><!-- 空中客车A330（大型）-->${leftTicket.airline.plane.company}
                                 -${leftTicket.airline.plane.modelName}</p>
                         </div>
                         <div class="col-md-2 text-center">
-                            <p><span class="goTime">${leftTicket.airline.startTime?string('hh:MM')}</span></p>
+                            <p><span class="goTime">${leftTicket.airline.startTime?string('HH:mm')}</span></p>
                             <p>${leftTicket.airline.departure.airportName}</p>
                         </div>
                         <div class="col-md-1 text-center"><i class="fa fa-long-arrow-right"></i></div>
                         <div class="col-md-2 text-center">
-                            <p><span class="arriveTime">${leftTicket.airline.arriveTime?string('hh:MM')}</span></p>
+                            <p><span class="arriveTime">${leftTicket.airline.arriveTime?string('HH:mm')}</span></p>
                             <p>${leftTicket.airline.destination.airportName}</p>
                         </div>
                         <div class="col-md-2 vCenter">${leftTicket.airline.fuelTex}元 / ${leftTicket.airline.airportConstruction}元</div>

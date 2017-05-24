@@ -48,6 +48,8 @@ public class LoginController {
             String parameterString = (String)session.getAttribute(GlobalContants.SESSION_LOGIN_BACK_PARAMETER_STRING);
             if(nextUrl==null || nextUrl.equals("")){
                 nextUrl = new String("/index");
+            }else {
+                session.removeAttribute(GlobalContants.SESSION_LOGIN_BACK_URL);
             }
             if(parameterString == null || parameterString.equals("")){
                 return "redirect:"+nextUrl;

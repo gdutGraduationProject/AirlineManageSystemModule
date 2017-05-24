@@ -152,7 +152,7 @@ public class TicketOrderController {
         Customer customer = (Customer) session.getAttribute(GlobalContants.SESSION_LOGIN_CUSTOMER);
         TicketOrder ticketOrder = ticketOrderService.findById(id);
         if(ticketOrder.getOrderStatus()!=1){
-            request.setAttribute(GlobalContants.REQUEST_ERROR_REASON,"已支付的订单不能删除");
+            request.setAttribute(GlobalContants.REQUEST_ERROR_REASON,"已支付的订单不能取消");
             return "error";
         }else if(customer.getId().equals(ticketOrder.getCustomer().getId())){
             request.setAttribute(GlobalContants.REQUEST_CONFIRM_TEXT,"确认要取消该订单吗？");
@@ -220,6 +220,7 @@ public class TicketOrderController {
             subOrderList.add(subOrder);
         }
         ticketOrder = ticketOrderService.refundTicketOrder(ticketOrder,subOrderList);
+
         return "redirect:/personalcenter/orderdetail?id="+ticketOrder.getId();
         }
     }
